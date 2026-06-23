@@ -1,0 +1,12 @@
+[project]
+name = "semantic-token-triage"
+version = "0.1.0"
+description = "Local Ollama experiment for clinical safety-aware token triage."
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+token-triage = "token_triage.cli:main"
+
+[tool.setuptools]
+packages = ["token_triage"]

@@ -1,0 +1,58 @@
+=== phase3 waiting for retry batch to finish Tue Jun 23 09:03:17 EDT 2026 ===
+=== phase3 started Tue Jun 23 09:28:49 EDT 2026 ===
+>>> roco-64 (corrected cols) @ Tue Jun 23 09:28:49 EDT 2026
+/Users/boddu/Documents/govinda/codex/TokenTriage/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Wrote outputs/pg-roco-qwen15b-64/traces.jsonl
+Wrote outputs/pg-roco-qwen15b-64/policy_results.csv
+Wrote outputs/pg-roco-qwen15b-64/paper_results.md
+Best TokenTriage: entropy=0.20,min=0.85,k=4, compute_saved=0.4656, critical_disagreement=0.1533
+<<< roco-64 done rc=0 @ Tue Jun 23 09:31:43 EDT 2026
+>>> real-decoding @ Tue Jun 23 09:31:43 EDT 2026
+/Users/boddu/Documents/govinda/codex/TokenTriage/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[1/24] CXR578_IM-2176-2001.png  ent fid=0.00 save=0.85 | tri fid=0.00 save=0.85
+[2/24] CXR776_IM-2319-2001.png  ent fid=0.00 save=0.38 | tri fid=0.00 save=0.38
+[3/24] CXR837_IM-2361-1001.png  ent fid=0.00 save=0.84 | tri fid=0.00 save=0.84
+[4/24] CXR785_IM-2325-2001.png  ent fid=0.50 save=0.36 | tri fid=0.50 save=0.35
+[5/24] CXR1281_IM-0188-2001.png ent fid=0.00 save=0.92 | tri fid=0.00 save=0.92
+[6/24] CXR3600_IM-1776-4004.png ent fid=0.00 save=0.71 | tri fid=0.00 save=0.71
+[7/24] CXR47_IM-2098-2001.png   ent fid=0.00 save=0.92 | tri fid=0.00 save=0.92
+[8/24] CXR864_IM-2384-1002.png  ent fid=0.00 save=0.47 | tri fid=0.00 save=0.47
+[9/24] CXR1476_IM-0308-1001.png ent fid=0.00 save=0.90 | tri fid=0.00 save=0.90
+[10/24] CXR2540_IM-1052-2001.png ent fid=0.00 save=0.40 | tri fid=0.00 save=0.40
+[11/24] CXR2217_IM-0822-0001-000 ent fid=0.00 save=0.92 | tri fid=0.00 save=0.92
+[12/24] CXR2390_IM-0944-1002.png ent fid=0.00 save=0.92 | tri fid=0.00 save=0.92
+[13/24] CXR3993_IM-2044-1002.png ent fid=0.00 save=0.74 | tri fid=0.00 save=0.74
+[14/24] CXR2491_IM-1017-2001.png ent fid=0.50 save=0.33 | tri fid=0.50 save=0.32
+[15/24] CXR794_IM-2331-2001.png  ent fid=0.00 save=0.92 | tri fid=0.00 save=0.92
+[16/24] CXR3467_IM-1684-0001-000 ent fid=0.00 save=0.50 | tri fid=0.00 save=0.50
+[17/24] CXR1713_IM-0471-1001.png ent fid=1.00 save=0.12 | tri fid=1.00 save=0.12
+[18/24] CXR2877_IM-1283-1001.png ent fid=0.00 save=0.89 | tri fid=0.00 save=0.89
+[19/24] CXR2053_IM-0691-2001.png ent fid=0.00 save=0.92 | tri fid=0.00 save=0.92
+[20/24] CXR2460_IM-0993-1001.png ent fid=0.00 save=0.92 | tri fid=0.00 save=0.92
+[21/24] CXR2817_IM-1241-1001.png ent fid=0.00 save=0.45 | tri fid=0.00 save=0.45
+[22/24] CXR710_IM-2273-1001.png  ent fid=0.00 save=0.92 | tri fid=0.00 save=0.92
+[23/24] CXR181_IM-0524-1002.png  ent fid=0.00 save=0.40 | tri fid=0.00 save=0.40
+[24/24] CXR1076_IM-0054-3001.png ent fid=0.33 save=0.54 | tri fid=0.33 save=0.54
+
+=== REAL DECODING SUMMARY ===
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "dataset": "ChayanM/IUXray-Data-Train-Test",
+  "reports": 24,
+  "prompt_tokens": 8,
+  "max_new": 50,
+  "entropy_thr": 0.1,
+  "entropy_crit_fidelity": 0.0972,
+  "triage_crit_fidelity": 0.0972,
+  "entropy_compute_saved": 0.6768,
+  "triage_compute_saved": 0.6764,
+  "entropy_prefix_agreement": 0.023,
+  "triage_prefix_agreement": 0.023,
+  "triage_critical_overrides": 7,
+  "triage_overrides_changed_token": 0,
+  "triage_override_change_rate": 0.0
+}
+<<< real-decoding done rc=0 @ Tue Jun 23 09:36:40 EDT 2026
+=== phase3 finished Tue Jun 23 09:36:40 EDT 2026 ===

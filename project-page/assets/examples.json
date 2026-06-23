@@ -1,0 +1,44 @@
+[
+  {
+    "token": "no",
+    "category": "negation",
+    "report_id": "CXR113_IM-0086-3001.png",
+    "entropy_exit": 1,
+    "triage_exit": 24
+  },
+  {
+    "token": "right",
+    "category": "laterality",
+    "report_id": "CXR1021_IM-0017-1001-0001.png",
+    "entropy_exit": 25,
+    "triage_exit": 28
+  },
+  {
+    "token": "opacity",
+    "category": "finding",
+    "report_id": "CXR1076_IM-0054-3001.png",
+    "entropy_exit": 1,
+    "triage_exit": 28
+  },
+  {
+    "token": "0",
+    "category": "measurement",
+    "report_id": "CXR1021_IM-0017-1001-0001.png",
+    "entropy_exit": 2,
+    "triage_exit": 26
+  },
+  {
+    "token": "mild",
+    "category": "severity",
+    "report_id": "CXR1076_IM-0054-3001.png",
+    "entropy_exit": 1,
+    "triage_exit": 28
+  },
+  {
+    "token": "prior",
+    "category": "temporality",
+    "report_id": "CXR1257_IM-0174-2001.png",
+    "entropy_exit": 1,
+    "triage_exit": 28
+  }
+]

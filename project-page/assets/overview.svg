@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" role="img" font-family="JetBrains Mono, IBM Plex Mono, ui-monospace, monospace">
+  <rect width="960" height="430" fill="#ffffff"/>
+
+  <!-- stage labels -->
+  <text x="28" y="30" font-size="13" font-weight="700" fill="#0a4f47">1.  Report tokens</text>
+  <text x="320" y="30" font-size="13" font-weight="700" fill="#0a4f47">2.  Risk-aware routing through the layers</text>
+  <text x="792" y="30" font-size="13" font-weight="700" fill="#0a4f47">3.  Outcome</text>
+
+  <!-- ===== Panel 1: report tokens ===== -->
+  <rect x="24" y="50" width="250" height="350" rx="10" fill="#fbfbf8" stroke="#d9d9d2"/>
+  <text x="44" y="86" font-size="12" font-weight="700" fill="#5b6266">ORDINARY (cheap if wrong)</text>
+  <g font-size="13" font-weight="700" fill="#3f5870" text-anchor="middle">
+    <rect x="44" y="98" width="50" height="28" rx="5" fill="#eef1f4" stroke="#c4ccd4"/><text x="69" y="117">the</text>
+    <rect x="104" y="98" width="44" height="28" rx="5" fill="#eef1f4" stroke="#c4ccd4"/><text x="126" y="117">of</text>
+    <rect x="158" y="98" width="48" height="28" rx="5" fill="#eef1f4" stroke="#c4ccd4"/><text x="182" y="117">was</text>
+    <rect x="44" y="132" width="56" height="28" rx="5" fill="#eef1f4" stroke="#c4ccd4"/><text x="72" y="151">there</text>
+    <rect x="110" y="132" width="40" height="28" rx="5" fill="#eef1f4" stroke="#c4ccd4"/><text x="130" y="151">is</text>
+  </g>
+  <line x1="44" y1="182" x2="254" y2="182" stroke="#e7e7e0"/>
+  <text x="44" y="208" font-size="12" font-weight="700" fill="#b1493b">CRITICAL (changes the diagnosis)</text>
+  <g font-size="13" font-weight="700" fill="#7a2c22" text-anchor="middle">
+    <rect x="44" y="220" width="46" height="28" rx="5" fill="#f6e3df" stroke="#d8a99f"/><text x="67" y="239">no</text>
+    <rect x="100" y="220" width="56" height="28" rx="5" fill="#f6e3df" stroke="#d8a99f"/><text x="128" y="239">left</text>
+    <rect x="166" y="220" width="84" height="28" rx="5" fill="#f6e3df" stroke="#d8a99f"/><text x="208" y="239">severe</text>
+    <rect x="44" y="254" width="56" height="28" rx="5" fill="#f6e3df" stroke="#d8a99f"/><text x="72" y="273">2.4</text>
+    <rect x="110" y="254" width="44" height="28" rx="5" fill="#f6e3df" stroke="#d8a99f"/><text x="132" y="273">cm</text>
+    <rect x="164" y="254" width="92" height="28" rx="5" fill="#f6e3df" stroke="#d8a99f"/><text x="210" y="273">effusion</text>
+  </g>
+  <rect x="44" y="306" width="210" height="74" rx="7" fill="#eaf4f1" stroke="#bcdcd4"/>
+  <text x="56" y="330" font-size="11.5" font-weight="700" fill="#0a4f47">risk tagger  c(x)</text>
+  <text x="56" y="350" font-size="11" fill="#5b6266">tags negation, laterality,</text>
+  <text x="56" y="366" font-size="11" fill="#5b6266">severity, measurement, finding</text>
+
+  <!-- ===== Panel 2: routing through layers ===== -->
+  <rect x="320" y="50" width="440" height="350" rx="10" fill="#fbfbf8" stroke="#d9d9d2"/>
+  <!-- layer gridlines -->
+  <g>
+    <line x1="360" y1="80" x2="360" y2="360" stroke="#e7e7e0"/>
+    <line x1="430" y1="80" x2="430" y2="360" stroke="#e7e7e0"/>
+    <line x1="500" y1="80" x2="500" y2="360" stroke="#e7e7e0"/>
+    <line x1="570" y1="80" x2="570" y2="360" stroke="#e7e7e0"/>
+    <line x1="640" y1="80" x2="640" y2="360" stroke="#e7e7e0"/>
+    <line x1="710" y1="80" x2="710" y2="360" stroke="#e7e7e0"/>
+  </g>
+  <text x="356" y="376" font-size="11" fill="#8a9094">shallow layers</text>
+  <text x="640" y="376" font-size="11" fill="#8a9094">deep layers (L)</text>
+
+  <!-- min depth marker -->
+  <line x1="600" y1="80" x2="600" y2="360" stroke="#0e6f63" stroke-width="1.4" stroke-dasharray="4 5"/>
+  <text x="600" y="74" font-size="10.5" font-weight="700" fill="#0a4f47" text-anchor="middle">min depth</text>
+
+  <!-- ordinary lane -->
+  <rect x="330" y="120" width="50" height="28" rx="5" fill="#eef1f4" stroke="#c4ccd4"/>
+  <text x="355" y="139" font-size="13" font-weight="700" fill="#3f5870" text-anchor="middle">the</text>
+  <line x1="384" y1="134" x2="452" y2="134" stroke="#3f5870" stroke-width="2.5" stroke-dasharray="6 6"/>
+  <circle cx="452" cy="134" r="6" fill="#3f5870"/>
+  <text x="462" y="124" font-size="11" font-weight="700" fill="#3f5870">confidence exit</text>
+  <text x="462" y="150" font-size="10.5" fill="#5b6266">cheap, stops early</text>
+
+  <!-- critical lane -->
+  <rect x="330" y="250" width="48" height="28" rx="5" fill="#f6e3df" stroke="#d8a99f"/>
+  <text x="354" y="269" font-size="13" font-weight="700" fill="#7a2c22" text-anchor="middle">no</text>
+  <line x1="382" y1="264" x2="690" y2="264" stroke="#0e6f63" stroke-width="2.6"/>
+  <circle cx="690" cy="264" r="6" fill="#0e6f63"/>
+  <text x="470" y="248" font-size="11" font-weight="700" fill="#0a4f47">held until min depth and k stable layers</text>
+  <text x="470" y="290" font-size="10.5" fill="#5b6266">extra depth spent only on high-risk tokens</text>
+
+  <!-- ===== Panel 3: outcome ===== -->
+  <rect x="792" y="50" width="144" height="350" rx="10" fill="#fbfbf8" stroke="#d9d9d2"/>
+  <rect x="806" y="78" width="116" height="120" rx="7" fill="#eef1f4" stroke="#c4ccd4"/>
+  <text x="864" y="104" font-size="11.5" font-weight="700" fill="#3f5870" text-anchor="middle">ordinary</text>
+  <text x="864" y="138" font-size="22" font-weight="700" fill="#3f5870" text-anchor="middle">33%</text>
+  <text x="864" y="160" font-size="10.5" fill="#5b6266" text-anchor="middle">compute</text>
+  <text x="864" y="174" font-size="10.5" fill="#5b6266" text-anchor="middle">saved</text>
+
+  <rect x="806" y="216" width="116" height="166" rx="7" fill="#eaf4f1" stroke="#bcdcd4"/>
+  <text x="864" y="242" font-size="11.5" font-weight="700" fill="#0a4f47" text-anchor="middle">critical</text>
+  <text x="864" y="280" font-size="13" fill="#b1493b" text-anchor="middle">72%</text>
+  <text x="864" y="300" font-size="11" fill="#5b6266" text-anchor="middle">to</text>
+  <text x="864" y="322" font-size="22" font-weight="700" fill="#0a4f47" text-anchor="middle">25%</text>
+  <text x="864" y="346" font-size="10.5" fill="#5b6266" text-anchor="middle">disagreement</text>
+  <text x="864" y="362" font-size="10.5" fill="#5b6266" text-anchor="middle">with full model</text>
+
+  <!-- connectors between panels -->
+  <line x1="274" y1="225" x2="318" y2="225" stroke="#9aa0a0" stroke-width="1.6"/>
+  <line x1="760" y1="225" x2="790" y2="225" stroke="#9aa0a0" stroke-width="1.6"/>
+</svg>

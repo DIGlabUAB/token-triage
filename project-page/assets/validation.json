@@ -1,0 +1,50 @@
+[
+  {
+    "label": "IU X-Ray / Qwen2.5-1.5B",
+    "dataset": "ChayanM/IUXray-Data-Train-Test",
+    "split": "test",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "reports": 64,
+    "tokens": 3783,
+    "critical_tokens": 341,
+    "baseline_policy": "entropy",
+    "baseline_setting": "threshold=0.10",
+    "baseline_critical_disagreement": 0.7214,
+    "triage_policy": "tokentriage-kstable",
+    "triage_setting": "entropy=0.10,min=0.85,k=4",
+    "triage_compute_saved": 0.3293,
+    "triage_critical_disagreement": 0.2551
+  },
+  {
+    "label": "ROCO chest / Qwen2.5-1.5B",
+    "dataset": "Santhosh1705kumar/radiology-reports-chest",
+    "split": "test",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "reports": 16,
+    "tokens": 573,
+    "critical_tokens": 59,
+    "baseline_policy": "entropy",
+    "baseline_setting": "threshold=0.10",
+    "baseline_critical_disagreement": 0.6102,
+    "triage_policy": "tokentriage-kstable",
+    "triage_setting": "entropy=0.55,min=0.85,k=4",
+    "triage_compute_saved": 0.8481,
+    "triage_critical_disagreement": 0.1525
+  },
+  {
+    "label": "IU X-Ray / Qwen2.5-0.5B",
+    "dataset": "ChayanM/IUXray-Data-Train-Test",
+    "split": "test",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "reports": 16,
+    "tokens": 921,
+    "critical_tokens": 84,
+    "baseline_policy": "entropy",
+    "baseline_setting": "threshold=0.10",
+    "baseline_critical_disagreement": 0.131,
+    "triage_policy": "tokentriage-kstable",
+    "triage_setting": "entropy=0.10,min=0.85,k=4",
+    "triage_compute_saved": 0.0794,
+    "triage_critical_disagreement": 0.0
+  }
+]

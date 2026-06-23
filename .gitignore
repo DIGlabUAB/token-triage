@@ -1,0 +1,17 @@
+# python environments
+.venv/
+.venv-chex/
+*.egg-info/
+__pycache__/
+*.pyc
+.DS_Store
+
+# local tooling / internal source
+.claude/
+Semantic Token Triage.docx
+
+# large generated artifacts (regenerate with scripts/); keep summaries + one headline trace
+outputs/**/traces.jsonl
+outputs/**/token_records.csv
+outputs/**/reports.json
+!outputs/.gitkeep

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 430" role="img">
+  <rect width="860" height="430" fill="#ffffff"/>
+  <text x="42" y="48" font-family="JetBrains Mono, IBM Plex Mono, ui-monospace, monospace" letter-spacing="-0.5" font-size="28" font-weight="600" fill="#172023">Critical token mix</text>
+  <text x="44" y="76" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="500" fill="#687174" text-anchor="start">341 tagged tokens in 64 reports</text>
+  <text x="48" y="130" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">negation</text>
+  <rect x="210" y="112" width="560" height="24" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="210" y="112" width="560.0" height="24" rx="4" fill="#0f7f7b"/>
+  <text x="790" y="130" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">114</text>
+  <text x="48" y="172" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">temporality</text>
+  <rect x="210" y="154" width="560" height="24" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="210" y="154" width="378.2" height="24" rx="4" fill="#0f7f7b"/>
+  <text x="790" y="172" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">77</text>
+  <text x="48" y="214" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">laterality</text>
+  <rect x="210" y="196" width="560" height="24" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="210" y="196" width="358.6" height="24" rx="4" fill="#0f7f7b"/>
+  <text x="790" y="214" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">73</text>
+  <text x="48" y="256" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">finding</text>
+  <rect x="210" y="238" width="560" height="24" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="210" y="238" width="186.7" height="24" rx="4" fill="#0f7f7b"/>
+  <text x="790" y="256" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">38</text>
+  <text x="48" y="298" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">severity</text>
+  <rect x="210" y="280" width="560" height="24" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="210" y="280" width="167.0" height="24" rx="4" fill="#0f7f7b"/>
+  <text x="790" y="298" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">34</text>
+  <text x="48" y="340" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">measurement</text>
+  <rect x="210" y="322" width="560" height="24" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="210" y="322" width="19.6" height="24" rx="4" fill="#0f7f7b"/>
+  <text x="790" y="340" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">4</text>
+  <text x="48" y="382" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">measurement unit</text>
+  <rect x="210" y="364" width="560" height="24" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="210" y="364" width="4.9" height="24" rx="4" fill="#0f7f7b"/>
+  <text x="790" y="382" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">1</text>
+</svg>

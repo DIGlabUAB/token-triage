@@ -1,0 +1,13 @@
+{
+  "model": "qwen2.5:1.5b",
+  "case_count": 8,
+  "token_count": 67,
+  "critical_token_count": 15,
+  "ollama_logprobs_available": false,
+  "entropy_only_avg_exit_layer": 7.34,
+  "criticality_aware_avg_exit_layer": 8.33,
+  "entropy_only_simulated_compute_saved": 0.738,
+  "criticality_aware_simulated_compute_saved": 0.703,
+  "entropy_only_dangerous_errors": 15,
+  "criticality_aware_dangerous_errors": 0
+}

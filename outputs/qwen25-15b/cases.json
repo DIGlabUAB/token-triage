@@ -1,0 +1,42 @@
+[
+  {
+    "case_id": "ollama-001",
+    "source": "ollama",
+    "report": "Left anterior chest contusion with pleural effusion."
+  },
+  {
+    "case_id": "ollama-002",
+    "source": "ollama",
+    "report": "Right lower extremity deep vein thrombosis without symptoms."
+  },
+  {
+    "case_id": "ollama-003",
+    "source": "ollama",
+    "report": "Abdominal pain with no relevant past medical history."
+  },
+  {
+    "case_id": "ollama-004",
+    "source": "ollama",
+    "report": "Bilateral lower extremity edema, negative for varicose veins."
+  },
+  {
+    "case_id": "ollama-005",
+    "source": "ollama",
+    "report": "Cerebral angiography showing multiple aneurysms."
+  },
+  {
+    "case_id": "ollama-006",
+    "source": "ollama",
+    "report": "Urinary retention due to neurogenic bladder dysfunction."
+  },
+  {
+    "case_id": "ollama-007",
+    "source": "ollama",
+    "report": "Left renal calculi without symptoms or complications."
+  },
+  {
+    "case_id": "ollama-008",
+    "source": "ollama",
+    "report": "Right upper extremity lymphedema with no associated infection."
+  }
+]

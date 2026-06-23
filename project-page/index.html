@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TokenTriage: Harm-Aware Token Routing for Clinical LLM Inference</title>
+    <meta name="description" content="A harm-stratified evaluation lens for adaptive inference on clinical text. Confidence-only early exit concentrates approximation and ground-truth error on clinically critical tokens; TokenTriage removes most of it in the preservation/verification regime. Validated across four open models, two datasets, and against radiologist text." />
+    <meta property="og:title" content="TokenTriage: Harm-Aware Token Routing for Clinical LLM Inference" />
+    <meta property="og:description" content="Confidence is not safety. Across 4 open models and 2 datasets, confidence-only early exit adds 16-22 points of extra critical-token error vs the words of the radiologist; TokenTriage adds 0-4." />
+    <meta property="og:type" content="article" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a href="#top" class="home">TokenTriage</a>
+      <nav>
+        <a href="#plain">Plain English</a>
+        <a href="#abstract">Abstract</a>
+        <a href="#motivation">Motivation</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#generalization">Generalization</a>
+        <a href="#correctness">Correctness</a>
+        <a href="#entity">CheXbert</a>
+        <a href="#decoding">Decoding</a>
+        <a href="#faq">FAQ</a>
+        <a href="#bibtex">BibTeX</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- ============ HEADER ============ -->
+      <div class="header">
+        <span class="eyebrow">Clinical adaptive inference · preprint</span>
+        <h1 class="title">TokenTriage: Harm-Aware Token Routing for Clinical Language Model Inference</h1>
+        <p class="authors">Kelly Powell, MBA · Danish Murad, M.S. · Benjamin A. Willett, Ph.D. · Richard Carlisle, B.S., CISSP · Bryan Webb, B.S. · Sandeep Bodduluri, M.S., Ph.D.</p>
+        <p class="affil"><a href="mailto:sbodduluri@uabmc.edu">sbodduluri@uabmc.edu</a> (corresponding author)</p>
+        <p class="venue">Preprint · June 2026 · open code &amp; data</p>
+        <div class="btns">
+          <a class="btn" href="tokentriage-paper.pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/></svg>Paper (PDF)
+          </a>
+          <a class="btn ghost" href="https://github.com/DIGlabUAB/token-triage">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.16.57.67.48A10 10 0 0012 2z"/></svg>Code
+          </a>
+          <a class="btn ghost" href="https://github.com/DIGlabUAB/token-triage/blob/main/outputs/paper-grade-iuxray-qwen25-64-deployable/traces.jsonl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/></svg>Traces
+          </a>
+          <a class="btn ghost" href="#bibtex">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V6a2 2 0 012-2h12v16H6a2 2 0 01-2-2.5z"/><path d="M8 7h8M8 11h6"/></svg>BibTeX
+          </a>
+        </div>
+      </div>
+
+      <!-- ============ OVERVIEW FIGURE ============ -->
+      <figure>
+        <img src="assets/overview.svg" alt="TokenTriage overview: risk tagger, risk-aware routing through the layers, and outcome" />
+        <figcaption><b>Figure 1.</b> Overview of TokenTriage. (1) A risk tagger marks each report token as ordinary or clinically critical (negation, laterality, severity, measurement, finding). (2) Tokens are routed through the layers by risk: ordinary tokens take a cheap confidence exit at a shallow layer, while critical tokens are held until they reach a minimum depth and the same top prediction has been stable for k consecutive layers. (3) The result keeps most of the compute saving on ordinary tokens while preserving the full-model decision on the tokens whose errors would change the clinical meaning.</figcaption>
+      </figure>
+
+      <!-- ============ PLAIN LANGUAGE ============ -->
+      <section id="plain">
+        <div class="plain">
+          <h2>In plain language</h2>
+          <p class="big">
+            An AI that drafts a medical report can go faster by <strong>deciding each word early</strong>
+            instead of using its full depth of "thought." For filler words (<code>the</code>,
+            <code>and</code>) that is harmless. But a handful of words carry the whole meaning:
+            <code>no</code>, <code>left</code>, <code>severe</code>, a measurement, a disease name.
+            Get one of <em>those</em> wrong by rushing, and the report can say the opposite of what the
+            radiologist meant.
+          </p>
+          <p>
+            <strong>TokenTriage</strong> lets the AI rush the easy words but <strong>slow down only on
+            the few words where a mistake would change the diagnosis.</strong> It is a safety rule:
+            spend a little extra compute exactly where a wrong shortcut would matter to a patient, and
+            nowhere else. In our tests it cuts the rate at which shortcuts flip a clinical finding by
+            roughly half, while keeping most of the speed-up.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ ABSTRACT ============ -->
+      <section id="abstract" class="abstract">
+        <h2>Abstract</h2>
+        <p>
+          Adaptive-inference methods such as early exit reduce language-model compute by stopping at
+          intermediate layers when a token appears confident. We ask a question these methods do not:
+          <em>when compute is saved on clinical text, which tokens pay for it?</em> Using teacher-forced
+          logit-lens traces, we stratify final-model preservation by clinical semantic risk and find that
+          confidence-only exits concentrate their approximation error on exactly the tokens whose errors
+          change clinical meaning, negation, laterality, severity, measurements, and findings. On 256
+          IU&nbsp;X-Ray reports with Qwen2.5-1.5B, an entropy exit saves 37.9% of simulated layer compute
+          but disagrees with the full model on 71.7% of critical tokens; <b>TokenTriage</b> cuts this to
+          24.9% at comparable savings. The effect reproduces across four open models (two families, a 6x
+          size range) and a second dataset. Measured against the <em>actual words</em> of the radiologist,
+          confidence-only exit introduces 16-22 points of <em>extra</em> critical-token error while
+          TokenTriage introduces 0-4. We also report an honest negative: naive untrained free-running early
+          exit collapses for all policies, locating the contribution in the preservation / verification
+          regime rather than as a standalone decoding speedup.
+        </p>
+      </section>
+
+      <!-- ============ MOTIVATION ============ -->
+      <section id="motivation">
+        <h2><span class="n">1</span>Motivation</h2>
+        <p class="lead">
+          Large language models spend the same compute on punctuation as on a diagnosis. Early-exit
+          methods stop confident tokens before the final layer to save latency, a good trade in general
+          text. In a radiology report it is not: a wrong early decision on <code>no</code> versus an
+          affirmed finding, or <code>left</code> versus <code>right</code>, can reverse the entire reading.
+          Standard exits (entropy, margin, max-confidence) ask only <em>“how sure is the model?”</em>.
+          They never ask the question that matters clinically: <em>“what would this token mean if it were
+          wrong?”</em>
+        </p>
+        <div class="note">
+          <span class="tag">Hypothesis</span>
+          If early exit ignores token meaning, it saves compute while concentrating error on clinical-risk
+          tokens. If routing uses semantic risk plus layerwise stability, critical-token error should fall
+          at a modest compute cost.
+        </div>
+        <p>
+          Risk is assigned from token <b>meaning</b>, not model confidence. A token is high-risk when
+          changing it changes the clinical reading: negation, laterality, severity, temporality,
+          medication, numeric measurements, units, and key findings.
+        </p>
+      </section>
+
+      <!-- ============ METHOD ============ -->
+      <section id="method">
+        <h2><span class="n">2</span>Method</h2>
+        <p>The pipeline traces every report once, then evaluates all policies on the same cached traces, so comparisons are exact and reproducible.</p>
+        <ul>
+          <li><b>Trace.</b> Run each report teacher-forced; at every layer, project the hidden state through the LM head (logit lens) and record entropy, top-1/top-2 margin, target NLL, the top token, and whether it matches the full model.</li>
+          <li><b>Tag risk (pluggable).</b> A lexical detector flags negation, laterality, severity, temporality, medication, measurement, unit, and finding tokens. The tagger is an interface, swap in RadGraph / CheXbert / radiologist labels without touching routing or evaluation.</li>
+          <li><b>Route.</b> Ordinary tokens use a standard entropy exit. Critical tokens must additionally reach a minimum layer fraction <em>and</em> hold the same top prediction for <code>k</code> consecutive layers before exiting (<code>TokenTriage-kstable</code>).</li>
+          <li><b>Measure.</b> Primary metric: critical-token disagreement with the full model (preservation), plus compute saved, harm-weighted disagreement, bootstrap CIs, and, separately, excess error against the gold report token (correctness).</li>
+        </ul>
+        <figure>
+          <img src="assets/architecture.svg" alt="Evaluation pipeline: reports to traces to risk tags to policies to metrics" />
+          <figcaption><b>Figure 2.</b> Evaluation pipeline, generated from the run artifacts. Reports are traced once; every policy is scored on the same traces with report-level bootstrap confidence intervals.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ EXPERIMENTS ============ -->
+      <section id="experiments">
+        <h2><span class="n">3</span>Experiments</h2>
+        <p>
+          Main experiment: the public <code>ChayanM/IUXray-Data-Train-Test</code> test split with
+          Qwen2.5-1.5B-Instruct at <b>256 reports</b> (13,697 next-token positions, 1,163 critical tokens,
+          28 layers). Generalization: Qwen2.5-0.5B / 1.5B / 3B and SmolLM2-1.7B at 64 reports each, plus a
+          second dataset, <code>Santhosh1705kumar/radiology-reports-chest</code> (ROCO chest captions, 64
+          reports). All data and models are public.
+        </p>
+        <figure class="fig-narrow">
+          <img src="assets/critical_mix.svg" alt="Critical token category mix" />
+          <figcaption><b>Figure 3.</b> Composition of the 341 critical tokens in the 64-report IU X-Ray sample, by clinical category.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ RESULTS ============ -->
+      <section id="results">
+        <h2><span class="n">4</span>Main result: confidence-only exit concentrates error on critical tokens</h2>
+        <p>
+          The strongest confidence baseline (entropy, threshold 0.10) saves 37.9% of simulated compute but
+          disagrees with the full model on <span class="neg">71.7%</span> of critical tokens. TokenTriage at
+          the matched threshold reduces this to <span class="pos">24.9%</span>, a 46.9 point reduction, while
+          retaining 33.1% savings. Numbers are stable versus the 64-report run (0.721 to 0.255).
+        </p>
+        <div class="table-scroll">
+          <table>
+            <caption><b>Table 1.</b> Main result, 256 IU X-Ray reports / Qwen2.5-1.5B. Lower critical disagreement is safer; HWD = harm-weighted disagreement; CI = report-level bootstrap 95% interval.</caption>
+            <thead>
+              <tr><th>Method</th><th>Setting</th><th class="n">Compute saved</th><th class="n">Crit. disagree</th><th>95% CI</th><th class="n">HWD</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Entropy</td><td>threshold=0.10</td><td class="n">0.379</td><td class="n neg">0.717</td><td>0.686-0.747</td><td class="n">0.560</td></tr>
+              <tr><td>Margin</td><td>threshold=0.50</td><td class="n">0.571</td><td class="n">0.865</td><td>0.848-0.884</td><td class="n">0.779</td></tr>
+              <tr class="hi"><td>TokenTriage-kstable</td><td>ent=0.10, min=0.85, k=4</td><td class="n">0.331</td><td class="n pos">0.249</td><td>0.226-0.276</td><td class="n">0.390</td></tr>
+              <tr><td>TokenTriage-kstable</td><td>ent=0.20, min=0.85, k=4</td><td class="n">0.517</td><td class="n">0.270</td><td>0.247-0.297</td><td class="n">0.575</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure>
+          <img src="assets/pareto.svg" alt="Compute-safety frontier" />
+          <figcaption><b>Figure 4.</b> Compute-safety frontier. Lower is safer, farther right is cheaper; TokenTriage points sit below the confidence-only baselines at comparable savings.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/gap.svg" alt="The gap TokenTriage closes" />
+          <figcaption><b>Figure 5.</b> The clinically meaningful gap at comparable compute (64-report view). Clay is the usual confidence-only exit; teal is the same model with a stricter halt rule for negations, lateralities, severities, measurements, and findings.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/examples.svg" alt="Real rescued critical tokens" />
+          <figcaption><b>Figure 6.</b> Real tokens from the stored traces where the entropy exit committed at an unstable layer while TokenTriage waited and matched the full model. Not mock examples.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ GENERALIZATION ============ -->
+      <section id="generalization">
+        <h2><span class="n">5</span>Generalization across families, scale, and a second dataset</h2>
+        <p>
+          We re-ran the full pipeline across four open models spanning two families and a 6× size range, plus
+          a 256-report run and a second dataset. Confidence-only exit concentrates error on critical tokens in
+          <em>every</em> configuration; TokenTriage closes most of the gap in every one.
+        </p>
+        <figure>
+          <img src="assets/models.svg" alt="Cross-model-family generalization" />
+          <figcaption><b>Figure 7.</b> Critical-token disagreement across four open models (IU X-Ray, 64 reports). TokenTriage (teal) sits far below the confidence baseline (clay) everywhere. Smaller models show a smaller gap, an honest detail: when the baseline is already safe, there is little to fix.</figcaption>
+        </figure>
+        <div class="table-scroll">
+          <table>
+            <caption><b>Table 2.</b> Generalization (top) plus scale and a second dataset (bottom). Critical-token disagreement vs the full model.</caption>
+            <thead>
+              <tr><th>Model / setting</th><th>Family</th><th class="n">Layers</th><th class="n">Crit. tok</th><th class="n">Baseline</th><th class="n">TokenTriage</th><th class="n">Compute saved</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Qwen2.5-0.5B (64)</td><td>Qwen2.5</td><td class="n">24</td><td class="n">341</td><td class="n neg">11.4%</td><td class="n pos">1.2%</td><td class="n">8.5%</td></tr>
+              <tr class="hi"><td>Qwen2.5-1.5B (64)</td><td>Qwen2.5</td><td class="n">28</td><td class="n">341</td><td class="n neg">72.1%</td><td class="n pos">25.5%</td><td class="n">32.9%</td></tr>
+              <tr><td>Qwen2.5-3B (64)</td><td>Qwen2.5</td><td class="n">36</td><td class="n">341</td><td class="n neg">53.1%</td><td class="n pos">18.5%</td><td class="n">29.7%</td></tr>
+              <tr class="divider"><td>SmolLM2-1.7B (64)</td><td>SmolLM2</td><td class="n">24</td><td class="n">349</td><td class="n neg">89.1%</td><td class="n pos">30.7%</td><td class="n">83.0%</td></tr>
+              <tr><td>Qwen2.5-1.5B (256)</td><td>Qwen2.5</td><td class="n">28</td><td class="n">1,163</td><td class="n neg">71.7%</td><td class="n pos">24.9%</td><td class="n">33.1%</td></tr>
+              <tr><td>ROCO chest / Qwen2.5-1.5B (64)</td><td>Qwen2.5</td><td class="n">28</td><td class="n">150</td><td class="n neg">62.0%</td><td class="n pos">15.3%</td><td class="n">27.3%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============ CORRECTNESS ============ -->
+      <section id="correctness">
+        <h2><span class="n">6</span>Correctness against the words of the radiologist</h2>
+        <p>
+          A fair objection: preserving the full-model prediction is not the same as being right. Because the
+          teacher-forced text <em>is</em> the radiologist report, the gold next token is ground truth.
+          Exact-match against free prose has a high floor (models pick valid synonyms), so the controlled
+          quantity is the <em>excess</em> error introduced by approximation. Confidence-only exit adds 16-22
+          points of extra critical-token error against the words of the radiologist; TokenTriage adds 0-4, with no
+          new labels required.
+        </p>
+        <figure>
+          <img src="assets/correctness.svg" alt="Excess critical-token error vs ground truth" />
+          <figcaption><b>Figure 8.</b> Extra critical-token errors introduced over the full model, measured against the gold report token. Clay = confidence-only exit; teal = TokenTriage.</figcaption>
+        </figure>
+        <div class="table-scroll">
+          <table>
+            <caption><b>Table 3.</b> Excess critical-token error against ground truth, over the full model. The full-model floor is high because exact next-token match of free prose is strict; the controlled quantity is the excess.</caption>
+            <thead>
+              <tr><th>Model</th><th class="n">Full-model floor</th><th class="n">Entropy excess</th><th class="n">TokenTriage excess</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Qwen2.5-0.5B</td><td class="n">77.1%</td><td class="n neg">+2.1</td><td class="n pos">+0.0</td></tr>
+              <tr><td>Qwen2.5-1.5B</td><td class="n">75.7%</td><td class="n neg">+16.7</td><td class="n pos">+2.4</td></tr>
+              <tr><td>Qwen2.5-3B</td><td class="n">73.3%</td><td class="n neg">+17.3</td><td class="n pos">+2.9</td></tr>
+              <tr><td>SmolLM2-1.7B</td><td class="n">78.2%</td><td class="n neg">+21.5</td><td class="n pos">+2.0</td></tr>
+              <tr><td>Qwen2.5-1.5B (256)</td><td class="n">74.2%</td><td class="n neg">+19.0</td><td class="n pos">+2.5</td></tr>
+              <tr><td>ROCO chest / Qwen2.5-1.5B</td><td class="n">69.3%</td><td class="n neg">+18.7</td><td class="n pos">+4.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============ ENTITY-LEVEL ============ -->
+      <section id="entity">
+        <h2><span class="n">7</span>Entity-level correctness with CheXbert</h2>
+        <p>
+          Token-level error need not be clinically meaningful, a wrong digit may not change a finding. To
+          test clinical impact directly we run a counterfactual: for each policy we apply its critical-token
+          errors to the gold report and label the gold and perturbed reports with
+          <a href="https://stanfordmlgroup.github.io/projects/chexbert/">CheXbert</a> (the standard
+          14-finding chest-radiograph labeler), then ask how often the token errors of a policy change the
+          finding vector.
+        </p>
+        <figure>
+          <img src="assets/entity.svg" alt="CheXbert entity-level correctness: entropy vs TokenTriage" />
+          <figcaption><b>Figure 9.</b> Share of reports whose CheXbert findings change when the critical-token errors of a policy are applied to the gold report. TokenTriage (teal) roughly halves clinical-finding changes versus confidence-only exit (clay).</figcaption>
+        </figure>
+        <div class="table-scroll">
+          <table>
+            <caption><b>Table 4.</b> Entity-level correctness (CheXbert, Qwen2.5-1.5B). TokenTriage roughly halves the reports whose findings change and the total findings flipped, real clinical-entity correctness, not a token proxy. It does not eliminate clinical change (the honest residual).</caption>
+            <thead>
+              <tr><th>Run</th><th class="n">Entropy: reports changed</th><th class="n">TokenTriage</th><th class="n">Entropy: findings flipped</th><th class="n">TokenTriage</th></tr>
+            </thead>
+            <tbody>
+              <tr class="hi"><td>IU X-Ray (256)</td><td class="n neg">69.9%</td><td class="n pos">46.1%</td><td class="n neg">400</td><td class="n pos">224</td></tr>
+              <tr><td>IU X-Ray (64)</td><td class="n neg">75.0%</td><td class="n pos">51.6%</td><td class="n neg">99</td><td class="n pos">67</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============ DECODING ============ -->
+      <section id="decoding">
+        <h2><span class="n">8</span>An honest look at the decoding regime</h2>
+        <p>
+          The results above hold in the <b>preservation regime</b>, where the input text is fixed (teacher
+          forcing, scoring, grounded generation, speculative-decoding verification). Does harm-aware routing
+          also help during free, autoregressive generation? We implemented real early-exit decoding, each
+          emitted token is chosen at its exit layer and fed back, so errors propagate, and compared full,
+          entropy, and TokenTriage decoders on 24 IU X-Ray continuations.
+        </p>
+        <div class="note warn">
+          <span class="tag">Negative result (reported in full)</span>
+          At entropy 0.10, untrained logit-lens early exit collapses for <b>both</b> policies (prefix agreement
+          with the full model ≈ 2%, critical-term fidelity ≈ 0.10), and TokenTriage changed the emitted token
+          in <b>0 of 7</b> critical interventions: when the model freely generates a critical token it is
+          already confident about it, so the cheap-exit token is stable and harm-gating does not fire.
+        </div>
+        <p>
+          This matches why deployed early-exit systems <em>train</em> exit heads rather than read a raw logit
+          lens. The implication is not that the lens is wrong but that its value lies where the target text is
+          given, preservation, verification, and self-speculative-decoding acceptance, rather than in naive
+          untrained free generation. We therefore frame TokenTriage as a harm-aware preservation/verification
+          rule, and leave calibrated harm-aware <em>generation</em> (a trained critical-token exit head) to
+          future work. The strongest deployment hook is self-speculative decoding: accept cheap drafts for
+          ordinary tokens, but demand full-model confirmation for critical ones.
+        </p>
+      </section>
+
+      <!-- ============ FAQ ============ -->
+      <section id="faq" class="faq">
+        <h2><span class="n">9</span>Questions a reader might reasonably ask</h2>
+
+        <h3>Does anyone actually use early exit instead of quantization?</h3>
+        <p class="a">
+          Mostly not, yet, and that is worth being honest about. <strong>Quantization</strong> (running
+          the model in lower-precision math) and <strong>distillation</strong> (training a smaller
+          model) are the workhorses of fast AI today; you would reach for those first. Two things keep early
+          exit relevant: (1) it is <strong>complementary, not a competitor</strong>, you can quantize a
+          model <em>and</em> let it stop early, because they save on different axes (precision vs.
+          depth); and (2) early exit is most deployed form is <strong>speculative decoding</strong>,
+          which <em>is</em> used in production, a fast "draft" is checked by the full model. TokenTriage
+          is the safety rule for that family: decide which draft words you can trust without a full
+          re-check, and which (the clinical ones) you cannot. So the claim is not "use early exit instead
+          of quantization." It is: <strong>whenever you take shortcuts on clinical text, take them by
+          risk, not just by confidence.</strong>
+        </p>
+
+        <h3>Why not just always run the full model?</h3>
+        <p class="a">
+          You can, and for the highest-stakes settings you should. But latency and cost are real
+          constraints in deployment, which is the entire reason adaptive and speculative methods exist.
+          The point of TokenTriage is that <em>if</em> you are going to take shortcuts, the safe way is
+          to take them by clinical risk. It keeps the efficiency goal but removes most of the clinical
+          downside.
+        </p>
+
+        <h3>Does it slow everything down?</h3>
+        <p class="a">
+          No. Only about 1 in 10 tokens is clinically critical; the other 90% still exit early. The
+          extra compute is spent narrowly, so most of the speed-up is retained (e.g. 33% compute saved
+          while halving clinical-finding changes).
+        </p>
+
+        <h3>Is this only about radiology?</h3>
+        <p class="a">
+          We test it on chest X-ray reports because they have clean, well-studied clinical labels
+          (CheXbert). But the core idea, a few words carry the meaning, so spend compute by
+          consequence, applies to any high-stakes text where a shortcut on the wrong word is costly.
+        </p>
+
+        <h3>Is "harm" measured by real clinical outcomes?</h3>
+        <p class="a">
+          Not yet, that would need radiologist adjudication. We use three increasingly strict proxies:
+          agreement with the full model, agreement with the exact words of the radiologist, and changes to
+          CheXbert clinical findings. We say so plainly; turning these into outcome studies is future
+          work.
+        </p>
+      </section>
+
+      <!-- ============ REPRODUCE ============ -->
+      <section id="reproduce">
+        <h2><span class="n">10</span>Reproducibility</h2>
+        <p>Every table regenerates from cached per-token logit-lens traces with one command set.</p>
+        <pre class="term"><span class="bar"><i></i><i></i><i></i><span>bash</span></span><code><span class="c"># install</span>
+git clone https://github.com/DIGlabUAB/token-triage
+cd token-triage &amp;&amp; python3 -m venv .venv &amp;&amp; <span class="k">source</span> .venv/bin/activate &amp;&amp; pip install -e .
+
+<span class="c"># main run (traces.jsonl · policy_results.csv · paper_results.md)</span>
+python scripts/run_paper_grade.py --limit 256 --bootstrap-samples 200 \
+  --output-dir outputs/pg-iuxray-qwen15b-256
+
+<span class="c"># cross-model / correctness / decoding / entity-level</span>
+python scripts/run_paper_grade.py --model HuggingFaceTB/SmolLM2-1.7B-Instruct --limit 64 ...
+python scripts/aggregate_results.py        <span class="c"># preservation summary</span>
+python scripts/add_gold_correctness.py     <span class="c"># excess error vs gold token</span>
+python scripts/run_real_decoding.py        <span class="c"># real early-exit decoding</span>
+python scripts/build_chexbert_inputs.py    <span class="c"># perturbed reports per policy</span>
+.venv-chex/bin/python scripts/run_chexbert_eval.py  <span class="c"># CheXbert entity-level</span></code></pre>
+      </section>
+
+      <!-- ============ LIMITATIONS ============ -->
+      <section id="limitations">
+        <h2><span class="n">11</span>Limitations</h2>
+        <ul>
+          <li>The risk tagger is lexicon-based; the interface is pluggable but a RadGraph/CheXbert tagger is not yet used to <em>assign</em> risk.</li>
+          <li>Entity-level correctness is a CheXbert counterfactual on perturbed gold reports, not radiologist-judged report correctness or RadGraph relation-level evaluation.</li>
+          <li>Domain is chest radiology, language is English; Phi-3.5 was excluded due to a modeling/cache incompatibility, so families tested are Qwen2.5 and SmolLM2.</li>
+          <li>The decoding-regime result is a single operating point on one model; a trained harm-aware exit head is the natural next step.</li>
+        </ul>
+      </section>
+
+      <!-- ============ BIBTEX ============ -->
+      <section id="bibtex">
+        <h2><span class="n">12</span>BibTeX</h2>
+        <button class="copy" id="copyBtn" type="button">copy</button>
+        <pre class="bib"><code id="bib">@misc{powell2026tokentriage,
+  title  = {TokenTriage: Harm-Aware Token Routing for Clinical Language Model Inference},
+  author = {Powell, Kelly and Murad, Danish and Willett, Benjamin A. and Carlisle, Richard and Webb, Bryan and Bodduluri, Sandeep},
+  year   = {2026},
+  note   = {Harm-stratified evaluation of adaptive inference on clinical text},
+  url    = {https://github.com/DIGlabUAB/token-triage}
+}</code></pre>
+      </section>
+    </main>
+
+    <footer>
+      <span>TokenTriage · Powell, Murad, Willett, Carlisle, Webb, Bodduluri · 2026</span>
+      <span><a href="tokentriage-paper.pdf">Paper</a> · <a href="https://github.com/DIGlabUAB/token-triage">Code</a> · <a href="https://github.com/DIGlabUAB/token-triage/blob/main/RESULTS.md">Results</a> · <a href="#top">back to top</a></span>
+    </footer>
+
+    <script>
+      const btn = document.getElementById("copyBtn");
+      btn.addEventListener("click", async () => {
+        try { await navigator.clipboard.writeText(document.getElementById("bib").innerText);
+          btn.textContent = "copied ✓"; btn.classList.add("done");
+          setTimeout(() => { btn.textContent = "copy"; btn.classList.remove("done"); }, 1600);
+        } catch (e) { btn.textContent = "copy failed"; }
+      });
+      const links = [...document.querySelectorAll(".topbar nav a")];
+      const secs = links.map(a => document.getElementById(a.getAttribute("href").slice(1))).filter(Boolean);
+      const spy = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id));
+      }), { rootMargin: "-45% 0px -50% 0px" });
+      secs.forEach(s => spy.observe(s));
+    </script>
+  </body>
+</html>

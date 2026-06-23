@@ -1,0 +1,10 @@
+{
+  "dataset": "ChayanM/IUXray-Data-Train-Test",
+  "config": "default",
+  "split": "test",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "limit": 64,
+  "offset": 0,
+  "max_length": 160,
+  "layers": 28
+}

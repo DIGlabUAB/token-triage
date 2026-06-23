@@ -1,0 +1,22 @@
+[
+  {
+    "case_id": "ollama-001",
+    "source": "ollama",
+    "report": "Left upper quadrant pain with elevated liver enzymes."
+  },
+  {
+    "case_id": "ollama-002",
+    "source": "ollama",
+    "report": "Right lower extremity edema without history of trauma."
+  },
+  {
+    "case_id": "ollama-003",
+    "source": "ollama",
+    "report": "Bilateral lung infiltrates consistent with recent viral infection."
+  },
+  {
+    "case_id": "ollama-004",
+    "source": "ollama",
+    "report": "New onset hypertension within 7 days post-surgery."
+  }
+]

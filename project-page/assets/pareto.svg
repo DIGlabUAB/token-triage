@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img">
+  <rect width="900" height="500" fill="#ffffff"/>
+  <text x="48" y="48" font-family="JetBrains Mono, IBM Plex Mono, ui-monospace, monospace" letter-spacing="-0.5" font-size="28" font-weight="600" fill="#172023">Compute-safety frontier</text>
+  <text x="50" y="78" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="500" fill="#687174" text-anchor="start">lower is safer · farther right is cheaper</text>
+  <rect x="100" y="90" width="750" height="340" rx="8" fill="#fbfbf8" stroke="#d8d8d0"/>
+  <path d="M100 90H850" stroke="#d8d8d0" stroke-width="1"/>
+  <path d="M100 90V430" stroke="#d8d8d0" stroke-width="1"/>
+  <path d="M100 158H850" stroke="#d8d8d0" stroke-width="1"/>
+  <path d="M250 90V430" stroke="#d8d8d0" stroke-width="1"/>
+  <path d="M100 226H850" stroke="#d8d8d0" stroke-width="1"/>
+  <path d="M400 90V430" stroke="#d8d8d0" stroke-width="1"/>
+  <path d="M100 294H850" stroke="#d8d8d0" stroke-width="1"/>
+  <path d="M550 90V430" stroke="#d8d8d0" stroke-width="1"/>
+  <path d="M100 362H850" stroke="#d8d8d0" stroke-width="1"/>
+  <path d="M700 90V430" stroke="#d8d8d0" stroke-width="1"/>
+  <path d="M130 384 C260 310 392 270 538 235 C660 205 756 150 828 104" fill="none" stroke="#d9e4df" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="413.5" cy="167.0" r="13" fill="#b84f42" stroke="#fff" stroke-width="4"/>
+  <text x="431.52000000000004" y="163.00210526315786" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">Entropy</text>
+  <text x="431.52000000000004" y="182.00210526315786" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="500" fill="#687174" text-anchor="start">72.1% crit.</text>
+  <circle cx="569.3" cy="114.7" r="13" fill="#3f5870" stroke="#fff" stroke-width="4"/>
+  <text x="587.28" y="110.65684210526314" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">Margin</text>
+  <text x="587.28" y="129.65684210526314" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="500" fill="#687174" text-anchor="start">87.7% crit.</text>
+  <circle cx="373.4" cy="324.1" r="13" fill="#0f7f7b" stroke="#fff" stroke-width="4"/>
+  <text x="391.44" y="320.07157894736844" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">TokenTriage</text>
+  <text x="391.44" y="339.07157894736844" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="500" fill="#687174" text-anchor="start">25.5% crit.</text>
+  <circle cx="520.4" cy="313.2" r="13" fill="#607d5d" stroke="#fff" stroke-width="4"/>
+  <text x="538.4" y="309.1915789473684" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="700" fill="#172023" text-anchor="start">Triage high-save</text>
+  <text x="538.4" y="328.1915789473684" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="500" fill="#687174" text-anchor="start">28.7% crit.</text>
+  <text x="450" y="470" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="14" font-weight="700" fill="#687174" text-anchor="middle">simulated layer-compute saved</text>
+  <text x="-292" y="36" transform="rotate(-90)" font-family="IBM Plex Mono, monospace" font-size="14" font-weight="700" fill="#687174" text-anchor="middle">critical-token disagreement</text>
+  <text x="100" y="454" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="600" fill="#687174" text-anchor="middle">0</text>
+  <text x="850" y="454" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="600" fill="#687174" text-anchor="middle">0.9</text>
+  <text x="78" y="430" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="600" fill="#687174" text-anchor="end">0</text>
+  <text x="78" y="96" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="600" fill="#687174" text-anchor="end">0.95</text>
+</svg>

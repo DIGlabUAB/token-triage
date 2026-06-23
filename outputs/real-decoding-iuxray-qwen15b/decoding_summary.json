@@ -1,0 +1,17 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "dataset": "ChayanM/IUXray-Data-Train-Test",
+  "reports": 24,
+  "prompt_tokens": 8,
+  "max_new": 50,
+  "entropy_thr": 0.1,
+  "entropy_crit_fidelity": 0.0972,
+  "triage_crit_fidelity": 0.0972,
+  "entropy_compute_saved": 0.6768,
+  "triage_compute_saved": 0.6764,
+  "entropy_prefix_agreement": 0.023,
+  "triage_prefix_agreement": 0.023,
+  "triage_critical_overrides": 7,
+  "triage_overrides_changed_token": 0,
+  "triage_override_change_rate": 0.0
+}

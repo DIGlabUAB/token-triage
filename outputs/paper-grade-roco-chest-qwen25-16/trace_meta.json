@@ -1,0 +1,10 @@
+{
+  "dataset": "Santhosh1705kumar/radiology-reports-chest",
+  "config": "default",
+  "split": "test",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "limit": 16,
+  "offset": 0,
+  "max_length": 120,
+  "layers": 28
+}

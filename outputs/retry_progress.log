@@ -1,0 +1,49 @@
+=== retry started Tue Jun 23 08:28:09 EDT 2026 ===
+>>> roco-64 @ Tue Jun 23 08:28:09 EDT 2026
+<<< roco-64 done rc=143 @ Tue Jun 23 09:02:28 EDT 2026
+>>> qwen15b-256 @ Tue Jun 23 09:02:48 EDT 2026
+/Users/boddu/Documents/govinda/codex/TokenTriage/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Wrote outputs/pg-iuxray-qwen15b-256/traces.jsonl
+Wrote outputs/pg-iuxray-qwen15b-256/policy_results.csv
+Wrote outputs/pg-iuxray-qwen15b-256/paper_results.md
+Best TokenTriage: entropy=0.10,min=0.85,k=4, compute_saved=0.331, critical_disagreement=0.2485
+<<< qwen15b-256 done rc=0 @ Tue Jun 23 09:25:01 EDT 2026
+>>> phi35-64 @ Tue Jun 23 09:25:21 EDT 2026
+/Users/boddu/Documents/govinda/codex/TokenTriage/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+A new version of the following files was downloaded from https://huggingface.co/microsoft/Phi-3.5-mini-instruct:
+- configuration_phi3.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/microsoft/Phi-3.5-mini-instruct:
+- modeling_phi3.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+`flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [02:53<02:53, 173.27s/it]Fetching 2 files: 100%|██████████| 2/2 [02:53<00:00, 86.63s/it] 
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.39s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.11s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.15s/it]
+past_key_values should not be None in from_legacy_cache()
+Traceback (most recent call last):
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/scripts/run_paper_grade.py", line 53, in <module>
+    main()
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/scripts/run_paper_grade.py", line 24, in main
+    results = run_paper_grade_experiment(
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/token_triage/paper_grade.py", line 568, in run_paper_grade_experiment
+    traces, reports, layers = generate_traces(
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/token_triage/paper_grade.py", line 166, in generate_traces
+    outputs = model(input_ids=input_ids, attention_mask=attention_mask, output_hidden_states=True)
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/boddu/.cache/huggingface/modules/transformers_modules/microsoft/Phi_hyphen_3_dot_5_hyphen_mini_hyphen_instruct/2fe192450127e6a83f7441aef6e3ca586c338b77/modeling_phi3.py", line 1243, in forward
+    outputs = self.model(
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/boddu/.cache/huggingface/modules/transformers_modules/microsoft/Phi_hyphen_3_dot_5_hyphen_mini_hyphen_instruct/2fe192450127e6a83f7441aef6e3ca586c338b77/modeling_phi3.py", line 1063, in forward
+    past_key_values_length = past_key_values.get_usable_length(seq_length)
+AttributeError: 'DynamicCache' object has no attribute 'get_usable_length'
+<<< phi35-64 done rc=1 @ Tue Jun 23 09:28:26 EDT 2026
+=== retry finished Tue Jun 23 09:28:46 EDT 2026 ===

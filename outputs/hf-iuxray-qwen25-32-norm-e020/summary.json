@@ -1,0 +1,23 @@
+{
+  "dataset": "ChayanM/IUXray-Data-Train-Test",
+  "split": "test",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "reports": 32,
+  "evaluated_tokens": 1799,
+  "critical_tokens": 167,
+  "layers": 28,
+  "entropy_exit_threshold": 0.2,
+  "critical_min_layer_fraction": 0.72,
+  "entropy_avg_exit_layer": 11.87,
+  "tokentriage_avg_exit_layer": 13.91,
+  "entropy_compute_saved": 0.576,
+  "tokentriage_compute_saved": 0.503,
+  "entropy_disagreement_rate_all": 0.811,
+  "tokentriage_disagreement_rate_all": 0.7854,
+  "entropy_disagreement_rate_critical": 0.9401,
+  "tokentriage_disagreement_rate_critical": 0.6647,
+  "entropy_harm_weighted_disagreement": 0.8517,
+  "tokentriage_harm_weighted_disagreement": 0.7464,
+  "entropy_mean_excess_nll": 8.1175,
+  "tokentriage_mean_excess_nll": 7.3181
+}

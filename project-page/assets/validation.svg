@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 428" role="img">
+  <rect width="900" height="428" fill="#ffffff"/>
+  <text x="42" y="46" font-family="JetBrains Mono, IBM Plex Mono, ui-monospace, monospace" letter-spacing="-0.5" font-size="28" font-weight="600" fill="#172023">Cross-run validation</text>
+  <text x="44" y="76" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" font-weight="500" fill="#687174" text-anchor="start">best confidence baseline vs deployable TokenTriage</text>
+  <text x="54" y="110" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="14" font-weight="700" fill="#172023" text-anchor="start">IU X-Ray / Qwen2.5-1.5B</text>
+  <rect x="300" y="94" width="460" height="20" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="300" y="94" width="331.8" height="20" rx="4" fill="#b84f42"/>
+  <rect x="300" y="126" width="460" height="20" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="300" y="126" width="117.3" height="20" rx="4" fill="#0f7f7b"/>
+  <text x="772" y="110" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="700" fill="#b84f42" text-anchor="start">72.1% baseline</text>
+  <text x="772" y="142" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="700" fill="#0f7f7b" text-anchor="start">25.5% triage</text>
+  <text x="54" y="144" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="500" fill="#687174" text-anchor="start">64 reports · 0.3293 compute saved</text>
+  <text x="54" y="202" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="14" font-weight="700" fill="#172023" text-anchor="start">ROCO chest / Qwen2.5-1.5B</text>
+  <rect x="300" y="186" width="460" height="20" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="300" y="186" width="280.7" height="20" rx="4" fill="#b84f42"/>
+  <rect x="300" y="218" width="460" height="20" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="300" y="218" width="70.1" height="20" rx="4" fill="#0f7f7b"/>
+  <text x="772" y="202" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="700" fill="#b84f42" text-anchor="start">61.0% baseline</text>
+  <text x="772" y="234" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="700" fill="#0f7f7b" text-anchor="start">15.2% triage</text>
+  <text x="54" y="236" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="500" fill="#687174" text-anchor="start">16 reports · 0.8481 compute saved</text>
+  <text x="54" y="294" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="14" font-weight="700" fill="#172023" text-anchor="start">IU X-Ray / Qwen2.5-0.5B</text>
+  <rect x="300" y="278" width="460" height="20" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="300" y="278" width="60.3" height="20" rx="4" fill="#b84f42"/>
+  <rect x="300" y="310" width="460" height="20" rx="4" fill="#f2f2ec" stroke="#d8d8d0"/>
+  <rect x="300" y="310" width="0.0" height="20" rx="4" fill="#0f7f7b"/>
+  <text x="772" y="294" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="700" fill="#b84f42" text-anchor="start">13.1% baseline</text>
+  <text x="772" y="326" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="700" fill="#0f7f7b" text-anchor="start">0.0% triage</text>
+  <text x="54" y="328" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" font-weight="500" fill="#687174" text-anchor="start">16 reports · 0.0794 compute saved</text>
+</svg>

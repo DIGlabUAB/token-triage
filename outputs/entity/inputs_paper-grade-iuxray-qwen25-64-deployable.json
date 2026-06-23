@@ -1,0 +1,386 @@
+[
+  {
+    "report_id": "CXR578_IM-2176-2001.png",
+    "gold": "chest radiograph. no acute radiographic cardiopulmonary process. normal cardiomediastinal silhouette and hilar contours. the lungs are clear without focal area of consolidation pleural effusion or pneumothorax. findings compatible with prior granulomatous disease. the visualized xxxx xxxx are intact without acute osseous abnormality.",
+    "entropy": "chest radiograph. Theinspection radiographic cardiopulmonary process. normal cardiomediastinal silhouette and hilar contours. the lungs are clear except focal area of \u200b\u200b pleural effusion or pneumothorax. findings compatible with a granulomatous disease. the visualized xxxx xxxx are intact and any osseous abnormality.",
+    "triage": "chest radiograph. The abnormalities radiographic cardiopulmonary process. normal cardiomediastinal silhouette and hilar contours. the lungs are clear. focal area of consolidation pleural effusion or pneumothorax. findings compatible with a granulomatous disease. the visualized xxxx xxxx are intact and evidence osseous abnormality."
+  },
+  {
+    "report_id": "CXR776_IM-2319-2001.png",
+    "gold": "no acute cardiopulmonary abnormality. cardiomediastinal silhouette is within normal limits in size and appearance. pulmonary vascularity is unremarkable. there are prominent coarse interstitial markings throughout the lungs with more focal streaky bibasilar opacities seen only on the frontal xxxx xxxx atelectasis. negative for focal airspace disease or consolidation. negative for pneumothorax or pleural effusion. limited evaluation reveals the xxxx xxxx are grossly intact.",
+    "entropy": "noinspection cardiopulmonary abnormality. cardiomediastinal silhouette is within normal limits in size and appearance. pulmonary vascularity is unremarkable. there are prominent coarse interstitial markings throughout the lungs with more focal streaky bibasilar opacities seen only on the frontal xxxx xxxx atelectasis. \n for focal airspace disease orignal. \n for pneumothorax or pleural effusion. limited evaluation reveals the xxxx xxxx are grossly intact.",
+    "triage": "no limp cardiopulmonary abnormality. cardiomediastinal silhouette is within normal limits in size and appearance. pulmonary vascularity is unremarkable. there are prominent coarse interstitial markings throughout the lungs with more focal streaky bibasilar opacities seen only on the frontal xxxx xxxx atelectasis. the for focal airspace disease or consolidation. no for pneumothorax or pleural effusion. limited evaluation reveals the xxxx xxxx are grossly intact."
+  },
+  {
+    "report_id": "CXR837_IM-2361-1001.png",
+    "gold": "no acute cardiopulmonary process. cardiomediastinal silhouette is within normal limits. lungs are clear without areas of focal consolidation. right hilar calcifications xxxx sequela of prior granulomatous disease. no pneumothorax or large pleural effusion. no acute bone abnormality.",
+    "entropy": "noinspection cardiopulmonary process. cardiomediastinal silhouette is within normal limits. lungs are clear. areas of focalizer. \n hilar calcifications xxxx sequela of childhood granulomatous disease. \n pneumothorax orphans pleural effusion. \ninspection bone abnormality.",
+    "triage": "no limp cardiopulmonary process. cardiomediastinal silhouette is within normal limits. lungs are clear. areas of focal consolidation. no hilar calcifications xxxx sequela of childhood granulomatous disease. no pneumothorax or ple pleural effusion. no ple bone abnormality."
+  },
+  {
+    "report_id": "CXR785_IM-2325-2001.png",
+    "gold": "no acute cardiopulmonary findings. the cardiomediastinal silhouette and pulmonary vasculature are within normal limits in size. the lungs are clear of focal airspace disease pneumothorax or pleural effusion. there are no acute bony findings.",
+    "entropy": "noinspection cardiopulmonary findings. the cardiomediastinal silhouette and pulmonary vasculature are within normal limits in size. the lungs are clear of focal airspace disease pneumothorax or pleural effusion. there are noinspection bony findings.",
+    "triage": "no limp cardiopulmonary findings. the cardiomediastinal silhouette and pulmonary vasculature are within normal limits in size. the lungs are clear of focal airspace disease pneumothorax or pleural effusion. there are no signs bony findings."
+  },
+  {
+    "report_id": "CXR1281_IM-0188-2001.png",
+    "gold": "no acute cardiopulmonary process. normal heart size and mediastinal contours. lungs are clear. there is no pneumothorax or pleural effusion. degenerative changes are seen in the spine.",
+    "entropy": "noinspection cardiopulmonary process. normal heart size and mediastinal contours. lungs are clear. there isnt pneumothorax or pleural effusion. degenerative changes are seen in the spine.",
+    "triage": "no limp cardiopulmonary process. normal heart size and mediastinal contours. lungs are clear. there is a pneumothorax or pleural effusion. degenerative changes are seen in the spine."
+  },
+  {
+    "report_id": "CXR3600_IM-1776-4004.png",
+    "gold": "heart size is within normal limits. no edema. bandlike scarring in the right base. no pleural effusion lobar consolidation or pneumothorax. multiple coarse calcifications in the epigastrium are seen on the lateral radiograph not well localized on the frontal image. could represent pancreatic parenchymal calcifications of chronic pancreatitis or old granulomatous sequela.",
+    "entropy": "heart size is within normal limits.  edema. bandlike scarring in the area base. no pleural effusion lobar consolidation or pneumothorax. multiple coarse calcifications in the epigastrium are seen on the lateral radiograph. well localized on the frontal image. could represent pancreatic parenchymal calcifications of pancreatic pancreatitis orignal granulomatous sequela.",
+    "triage": "heart size is within normal limits. The edema. bandlike scarring in the lower base. no pleural effusion lobar consolidation or pneumothorax. multiple coarse calcifications in the epigastrium are seen on the lateral radiograph. well localized on the frontal image. could represent pancreatic parenchymal calcifications of the pancreatitis or a granulomatous sequela."
+  },
+  {
+    "report_id": "CXR47_IM-2098-2001.png",
+    "gold": "heart size is within normal limits. coronary artery stent noted. no edema. no focal consolidation pleural effusion or pneumothorax. mild nonspecific biapical pleural thickening. clips from prior cholecystectomy are noted.",
+    "entropy": "heart size is within normal limits. coronary artery stent noted. no edema.  focalizer pleural effusion or pneumothorax. no nonspecific biapical pleural thickening. clips from/to cholecystectomy are noted.",
+    "triage": "heart size is within normal limits. coronary artery stent noted. no edema. no focal lesions pleural effusion or pneumothorax. no nonspecific biapical pleural thickening. clips from the cholecystectomy are noted."
+  },
+  {
+    "report_id": "CXR864_IM-2384-1002.png",
+    "gold": "stable exam with no acute abnormality seen. stable cardiomediastinal silhouette with tortuous thoracic aorta. no pneumothorax pleural effusion or suspicious focal air space opacity. stable right lung base scarring.",
+    "entropy": "stable exam with regardsinspection abnormality seen.  cardiomediastinal silhouette with tortuous thoracic aorta. \n pneumothorax pleural effusion or suspicious focal air space.. \n chest lung base scarring.",
+    "triage": "stable exam with a errors abnormality seen. The cardiomediastinal silhouette with tortuous thoracic aorta.  pneumothorax pleural effusion or suspicious focal air space..  chest lung base scarring."
+  },
+  {
+    "report_id": "CXR1476_IM-0308-1001.png",
+    "gold": "no acute disease. the heart is normal in size. the mediastinum is unremarkable. the lungs are clear.",
+    "entropy": "noinspection disease. the heart is normal in size. the mediastinum is unremarkable. the lungs are clear.",
+    "triage": "no limp disease. the heart is normal in size. the mediastinum is unremarkable. the lungs are clear."
+  },
+  {
+    "report_id": "CXR2540_IM-1052-2001.png",
+    "gold": "no acute cardiopulmonary abnormality. the lungs are clear bilaterally. specifically no evidence of focal consolidation pneumothorax or pleural effusion. cardiomediastinal silhouette is unremarkable. visualized osseous structures of the thorax are without acute abnormality.",
+    "entropy": "noinspection cardiopulmonary abnormality. the lungs are clear bilaterally. specificallyally evidence of focalizer pneumothorax or pleural effusion. cardiomediastinal silhouette is unremarkable. visualized osseous structures of the thorax arent any abnormality.",
+    "triage": "no limp cardiopulmonary abnormality. the lungs are clear bilaterally. specifically, evidence of focal lung pneumothorax or pleural effusion. cardiomediastinal silhouette is unremarkable. visualized osseous structures of the thorax are normal abnormalities abnormality."
+  },
+  {
+    "report_id": "CXR2217_IM-0822-0001-0002.png",
+    "gold": "no acute cardiopulmonary findings heart size borderline enlarged mediastinal contours appear similar to the xxxx from xxxx xxxx xxxx noted. right hemidiaphragm eventration. no focal alveolar consolidation no definite pleural effusion seen. no typical findings of pulmonary edema.",
+    "entropy": "noinspection cardiopulmonary findings heart size borderline enlarged mediastinal contours appear similar to the xxxx from xxxx xxxx xxxx noted. \n hemidiaphragm eventration. \n focal alveolar\u6216\u591a or definite pleural effusion seen. \n typical findings of pulmonary edema.",
+    "triage": "no limp cardiopulmonary findings heart size borderline enlarged mediastinal contours appear similar to the xxxx from xxxx xxxx xxxx noted. The hemidiaphragm eventration. no focal alveolar infiltr or definite pleural effusion seen. no typical findings of pulmonary edema."
+  },
+  {
+    "report_id": "CXR2390_IM-0944-1002.png",
+    "gold": "stable left thoracotomy changes with left-sided volume loss. no acute interval change. the heart is borderline in size. the mediastinum is stable with changes of xxxx sternotomy and bypass graft. aorta is atherosclerotic. there are postsurgical changes of the left hemithorax with mild left-sided volume loss as evidenced by diaphragm elevation. left post thoracotomy rib changes are noted. the right lung is clear. there is no pleural effusion.",
+    "entropy": "stable\n thoracotomy changes with regard-sided volume loss. inspection pulmonary change. the heart is borderline in size. the mediastinum is intact with changes of xxxx sternotomy and bypass graft. aorta is atherosclerotic. there are postsurgical changes of the aforementioned hemithorax with regard/mod-sided volume loss as evidenced by diaphragm elevation. \n post thoracotomy rib changes are noted. the left lung is clear. there isnt pleural effusion.",
+    "triage": "stable\n thoracotomy changes with age-sided volume loss. The matter pulmonary change. the heart is borderline in size. the mediastinum is normal with changes of xxxx sternotomy and bypass graft. aorta is atherosclerotic. there are postsurgical changes of the heart hemithorax with a ple-sided volume loss as evidenced by diaphragm elevation. there post thoracotomy rib changes are noted. the left lung is clear. there is no pleural effusion."
+  },
+  {
+    "report_id": "CXR3993_IM-2044-1002.png",
+    "gold": "borderline cardiomegaly without acute disease. the heart is mildly enlarged. left hemidiaphragm is elevated. there is no acute infiltrate or pleural effusion. the mediastinum is unremarkable.",
+    "entropy": "borderline cardiomegaly on pulmonary disease. the heart is mildly enlarged. the hemidiaphragm is elevated. there isntinspection infiltrate or pleural effusion. the mediastinum is unremarkable.",
+    "triage": "borderline cardiomegaly on pulmonary disease. the heart is mildly enlarged. the hemidiaphragm is elevated. there is no evidence infiltrate or pleural effusion. the mediastinum is unremarkable."
+  },
+  {
+    "report_id": "CXR2491_IM-1017-2001.png",
+    "gold": "no acute cardiopulmonary abnormality. the cardiomediastinal silhouette and pulmonary vasculature are within normal limits. there is no pneumothorax or pleural effusion. there are no focal areas of consolidation.",
+    "entropy": "noinspection cardiopulmonary abnormality. the cardiomediastinal silhouette and pulmonary vasculature are within normal limits. there isnt pneumothorax or pleural effusion. there are no focal areas of \u200b\u200b.",
+    "triage": "no limp cardiopulmonary abnormality. the cardiomediastinal silhouette and pulmonary vasculature are within normal limits. there is no pneumothorax or pleural effusion. there are no focal areas of abnormal."
+  },
+  {
+    "report_id": "CXR794_IM-2331-2001.png",
+    "gold": "no acute cardiopulmonary process. normal heart size and mediastinal contours. lungs are clear. there is no pneumothorax or pleural effusion. postoperative changes seen in the left humerus. no acute bony abnormalities.",
+    "entropy": "noinspection cardiopulmonary process. normal heart size and mediastinal contours. lungs are clear. there isnt pneumothorax or pleural effusion. postoperative changes seen in the latter humerus. \ninspection bony abnormalities.",
+    "triage": "no limp cardiopulmonary process. normal heart size and mediastinal contours. lungs are clear. there is a pneumothorax or pleural effusion. postoperative changes seen in the lungs humerus. the fracture bony abnormalities."
+  },
+  {
+    "report_id": "CXR3467_IM-1684-0001-0001.png",
+    "gold": "no acute cardiopulmonary disease. no evidence of pneumonia. the lungs are clear. the heart and pulmonary xxxx are normal. pleural spaces are clear. the mediastinal contours are normal. there is calcification of the thoracic aorta.",
+    "entropy": "noinspection cardiopulmonary disease. \n evidence of pneumonia. the lungs are clear. the heart and pulmonary xxxx are normal. pleural spaces are clear. the mediastinal contours are normal. there is calcification of the thoracic aorta.",
+    "triage": "no limp cardiopulmonary disease. The evidence of pneumonia. the lungs are clear. the heart and pulmonary xxxx are normal. pleural spaces are clear. the mediastinal contours are normal. there is calcification of the thoracic aorta."
+  },
+  {
+    "report_id": "CXR1713_IM-0471-1001.png",
+    "gold": "the heart size is top normal cardiomediastinal silhouette within normal limits. pulmonary vasculature appears normal. there is no focal air space consolidation. no pleural effusion or pneumothorax.",
+    "entropy": "the heart size is top normal cardiomediastinal silhouette within normal limits. pulmonary vasculature appears normal. there isnt focal air space disease. \n pleural effusion or pneumothorax.",
+    "triage": "the heart size is top normal cardiomediastinal silhouette within normal limits. pulmonary vasculature appears normal. there is no focal air space disease. there pleural effusion or pneumothorax."
+  },
+  {
+    "report_id": "CXR2877_IM-1283-1001.png",
+    "gold": "negative for acute abnormality. the cardiomediastinal silhouette is normal in size and contour. no focal consolidation pneumothorax or large pleural effusion. normal xxxx.",
+    "entropy": "negative for all abnormality. the cardiomediastinal silhouette is normal in size and contour. the focalizer pneumothorax orphans pleural effusion. normal xxxx.",
+    "triage": "negative for all abnormality. the cardiomediastinal silhouette is normal in size and contour. the focal abnormal pneumothorax or ple pleural effusion. normal xxxx."
+  },
+  {
+    "report_id": "CXR2053_IM-0691-2001.png",
+    "gold": "no acute cardiopulmonary disease. the heart is normal in size and contour. the lungs are clear without evidence of infiltrate. there is no pneumothorax or effusion.",
+    "entropy": "noinspection cardiopulmonary disease. the heart is normal in size and contour. the lungs are clear to evidence of infiltrate. there isnt pneumothorax or effusion.",
+    "triage": "no limp cardiopulmonary disease. the heart is normal in size and contour. the lungs are clear to evidence of infiltrate. there is no pneumothorax or effusion."
+  },
+  {
+    "report_id": "CXR2460_IM-0993-1001.png",
+    "gold": "no active disease.",
+    "entropy": "no active disease.",
+    "triage": "no active disease."
+  },
+  {
+    "report_id": "CXR2817_IM-1241-1001.png",
+    "gold": "no acute cardiopulmonary abnormality. emphysema. evaluation is limited due to obscuration by the patient's arm on the lateral view. cardiomediastinal silhouette is within normal limits of size and appearance. pulmonary vascular is unremarkable. xxxx are chronic coarse interstitial lung markings. peripheral opacity along the right mid lung xxxx reflects scar or a small amount of loculated pleural fluid or thickening. otherwise negative for focal airspace disease or consolidation. hyperlucent lungs with apical xxxx. negative for pneumothorax or pleural effusion. limited evaluation reveals the xxxx xxxx to be grossly intact.",
+    "entropy": "noinspection cardiopulmonary abnormality. emphysema. evaluation is limited due to obscuration by the patient's arm on the lateral view. cardiomediastinal silhouette is within normal limits of size and appearance. pulmonary vascular is unremarkable. xxxx are normal coarse interstitial lung markings. peripheral lung along the right mid lung xxxx reflects scar or a\u5176\u5b83\u95ee\u9898 amount of loculated pleural fluid or thickening. otherwise, for focal airspace disease orignal. hyperlucent lungs with apical xxxx. for pneumothorax or pleural effusion. limited evaluation reveals the xxxx xxxx to be grossly intact.",
+    "triage": "no limp cardiopulmonary abnormality. emphysema. evaluation is limited due to obscuration by the patient's arm on the lateral view. cardiomediastinal silhouette is within normal limits of size and appearance. pulmonary vascular is unremarkable. xxxx are normal coarse interstitial lung markings. peripheral lung along the right mid lung xxxx reflects scar or a small amount of loculated pleural fluid or thickening. otherwise, for focal airspace disease or consolidation. hyperlucent lungs with apical xxxx. no for pneumothorax or pleural effusion. limited evaluation reveals the xxxx xxxx to be grossly intact."
+  },
+  {
+    "report_id": "CXR710_IM-2273-1001.png",
+    "gold": "no activeacute cardiopulmonary disease. stable normal cardiac size and contour with unremarkable mediastinal silhouette. normal pulmonary xxxx. no active airspace diseaseinfiltrate. no pleural effusion or pneumothorax. calcified granuloma right upper lobe.",
+    "entropy": "no active users cardiopulmonary disease. \n normal cardiac size and contour with unremarkable mediastinal silhouette. normal pulmonary xxxx. no active airspace diseaseinfiltrate. \n pleural effusion or pneumothorax. calcified granuloma found/left lobe.",
+    "triage": "no active users cardiopulmonary disease. normal cardiac size and contour with unremarkable mediastinal silhouette. normal pulmonary xxxx. no active airspace diseaseinfiltrate. no pleural effusion or pneumothorax. calcified granuloma in lung lobe."
+  },
+  {
+    "report_id": "CXR181_IM-0524-1002.png",
+    "gold": "no acute cardiopulmonary abnormality. normal heart size mediastinal contours. eventration of the right hemidiaphragm. no focal airspace consolidation. no pleural effusion or pneumothorax.",
+    "entropy": "noinspection cardiopulmonary abnormality. normal heart size mediastinal contours. eventration of the left hemidiaphragm. \n focal airspace op. \n pleural effusion or pneumothorax.",
+    "triage": "no limp cardiopulmonary abnormality. normal heart size mediastinal contours. eventration of the a hemidiaphragm. normal focal airspace op. no pleural effusion or pneumothorax."
+  },
+  {
+    "report_id": "CXR1076_IM-0054-3001.png",
+    "gold": "question of left lower lobe pneumonia andor pleural effusion. borderline heart size with mild central vascular congestive changes. there is opacity at posterior aspect of lower chest seen on lateral view which probably represents left lower lobe consolidation. there may also be small bilateral pleural effusion. upper limits of normal heart size. mild central vascular prominence. old fracture deformities of multiple right ribs.",
+    "entropy": "question of whether/right lobe pneumonia andor pleural effusion. borderline heart size with regards central vascular congestive changes. there isnt at posterior aspect of lungs chest seen on lateral view which probably represents lung/right lobe pneumonia. there may also be a(er pleural effusion. \n limits of normal heart size.  central vascular prominence. no-fashioned deformities of multiple sclerosis ribs.",
+    "triage": "question of whether/right lobe pneumonia andor pleural effusion. borderline heart size with a central vascular congestive changes. there is a at posterior aspect of lungs chest seen on lateral view which probably represents ple lung lobe pneumonia. there may also be a amount pleural effusion. limits of normal heart size. no central vascular prominence. no left deformities of multiple ribs ribs."
+  },
+  {
+    "report_id": "CXR3967_IM-2028-1001.png",
+    "gold": "no acute radiographic cardiopulmonary process. the cardiomediastinal silhouette is within normal limits for size and contour. the lungs are normally inflated without evidence of focal airspace disease pleural effusion or pneumothorax. mild degenerative endplate changes of the spine.",
+    "entropy": "noinspection radiographic cardiopulmonary process. the cardiomediastinal silhouette is within normal limits for size and contour. the lungs are normally inflated and evidence of focal airspace disease pleural effusion or pneumothorax. \n degenerative endplate changes of the spine.",
+    "triage": "no limp radiographic cardiopulmonary process. the cardiomediastinal silhouette is within normal limits for size and contour. the lungs are normally inflated and evidence of focal airspace disease pleural effusion or pneumothorax. the degenerative endplate changes of the spine."
+  },
+  {
+    "report_id": "CXR3820_IM-1928-1001.png",
+    "gold": "no acute pulmonary abnormality. the lungs and pleural spaces show no acute abnormality. heart size upper limits of normal pulmonary vascularity within normal limits. straightening of the normal thoracic kyphosis. levocurvature the lumbar spine incompletely imaged.",
+    "entropy": "noinspection pulmonary abnormality. the lungs and pleural spaces show normalinspection abnormality. heart size and limits of normal pulmonary vascularity within normal limits. straightening of the normal thoracic kyphosis. levocurvature the lumbar spine incompletely imaged.",
+    "triage": "no limp pulmonary abnormality. the lungs and pleural spaces show normal abnormalities abnormality. heart size and limits of normal pulmonary vascularity within normal limits. straightening of the normal thoracic kyphosis. levocurvature the lumbar spine incompletely imaged."
+  },
+  {
+    "report_id": "CXR3122_IM-1467-2001.png",
+    "gold": "no acute cardiopulmonary disease. the cardiomediastinal silhouette is normal size and configuration. pulmonary vasculature within normal limits. the lungs are well-aerated. there is no pneumothorax pleural effusion or focal consolidation.",
+    "entropy": "noinspection cardiopulmonary disease. the cardiomediastinal silhouette is normal size and configuration. pulmonary vasculature within normal limits. the lungs are well-aerated. there isnt pneumothorax pleural effusion or focalizer.",
+    "triage": "no limp cardiopulmonary disease. the cardiomediastinal silhouette is normal size and configuration. pulmonary vasculature within normal limits. the lungs are well-aerated. there is no pneumothorax pleural effusion or focal infiltr."
+  },
+  {
+    "report_id": "CXR2034_IM-0679-2001.png",
+    "gold": "no acute cardiopulmonary abnormality. hyperlucent lungs xxxx related to cachexia and probable pectus excavatum deformity. normal heart size and mediastinal contours. no focal airspace consolidation. xxxx opacities in the right lower lung representing atelectasis versus scarring. significantly decreased subcutaneous soft tissue since comparison radiograph. probable pectus deformity. negative for acute bony abnormality.",
+    "entropy": "noinspection cardiopulmonary abnormality. hyperlucent lungs xxxx related to cachexia and probable pectus excavatum deformity. normal heart size and mediastinal contours. \n focal airspace op. xxxx opacities in the latter/left lung representing atelectasis versus scarring. significantly decreased subcutaneous soft tissue since comparison radiograph. probable pectus deformity. no for sake bony abnormality.",
+    "triage": "no limp cardiopulmonary abnormality. hyperlucent lungs xxxx related to cachexia and probable pectus excavatum deformity. normal heart size and mediastinal contours. no focal airspace op. xxxx opacities in the right lung lung representing atelectasis versus scarring. significantly decreased subcutaneous soft tissue since comparison radiograph. probable pectus deformity. no for ple bony abnormality."
+  },
+  {
+    "report_id": "CXR3089_IM-1444-1001.png",
+    "gold": "no acute cardiopulmonary abnormalities. normal heart size and mediastinal contours. no abnormal airspace opacities. no pleural effusion or pneumothorax. visualized osseous structures are unremarkable in appearance.",
+    "entropy": "noinspection cardiopulmonary abnormalities. normal heart size and mediastinal contours. \n abnormal airspace opacities. \n pleural effusion or pneumothorax. visualized osseous structures are unremarkable in appearance.",
+    "triage": "no limp cardiopulmonary abnormalities. normal heart size and mediastinal contours. no abnormal airspace opacities. no pleural effusion or pneumothorax. visualized osseous structures are unremarkable in appearance."
+  },
+  {
+    "report_id": "CXR1559_IM-0365-1001.png",
+    "gold": "increasing density in the superior segment xxxx the left lower lobe xxxx seen on lateral view consistent worsening of known tumor. stable cardiomediastinal silhouette. right hilar surgical clips. stable right-sided volume loss. increasing density in the superior segment of the left lower lobe xxxx seen on lateral view. no pneumothorax. severe degenerative disease of the xxxx.",
+    "entropy": "increasing density in the superior segment xxxx the latter/right lobe xxxx seen on lateral view consistent with of known tumor. \n cardiomediastinal silhouette. \n hilar surgical clips. no chest-sided volume loss. increasing density in the superior segment of the aforementioned/right lobe xxxx seen on lateral view. \n pneumothorax. no degenerative disease of the xxxx.",
+    "triage": "increasing density in the superior segment xxxx the superior vent lobe xxxx seen on lateral view consistent with of known tumor. What cardiomediastinal silhouette. no hilar surgical clips. no medi-sided volume loss. increasing density in the superior segment of the left lower lobe xxxx seen on lateral view. consistent pneumothorax. no degenerative disease of the xxxx."
+  },
+  {
+    "report_id": "CXR3619_IM-1791-2001.png",
+    "gold": "no acute radiographic cardiopulmonary process. cardiac and mediastinal xxxx appear normal. no visible pneumothorax focal airspace opacity or pleural effusion is seen. no visible free air under the diaphragm. the osseous structures appear intact.",
+    "entropy": "noinspection radiographic cardiopulmonary process. cardiac and mediastinal xxxx appear normal. \n visible pneumothorax focal airspace op or pleural effusion is seen. \n visible chest air under the diaphragm. the osseous structures appear intact.",
+    "triage": "no limp radiographic cardiopulmonary process. cardiac and mediastinal xxxx appear normal. the visible pneumothorax focal airspace op or pleural effusion is seen. the visible pulmonary air under the diaphragm. the osseous structures appear intact."
+  },
+  {
+    "report_id": "CXR1435_IM-0280-1001.png",
+    "gold": "no acute cardiopulmonary disease. the heart and mediastinum are unremarkable. the lungs are clear without infiltrate. there is no effusion or pneumothorax.",
+    "entropy": "noinspection cardiopulmonary disease. the heart and mediastinum are unremarkable. the lungs are clear except infiltrate. there isnt effusion or pneumothorax.",
+    "triage": "no limp cardiopulmonary disease. the heart and mediastinum are unremarkable. the lungs are clear to infiltrate. there is no effusion or pneumothorax."
+  },
+  {
+    "report_id": "CXR2629_IM-1116-1001.png",
+    "gold": "no focal infiltrate. mediastinal contours are normal. lungs are clear. there is no pneumothorax or large pleural effusion.",
+    "entropy": "no focal infiltrate. mediastinal contours are normal. lungs are clear. there isnt pneumothorax orphans pleural effusion.",
+    "triage": "no focal infiltrate. mediastinal contours are normal. lungs are clear. there is no pneumothorax or ple pleural effusion."
+  },
+  {
+    "report_id": "CXR2163_IM-0779-1001.png",
+    "gold": "no xxxx suspicious pulmonary mass or nodule identified. however given the presence of small nodules on the xxxx chest ct scan and patient history of prostate cancer recommend further evaluation with xxxx scan (unless already recently performed). there is a calcified left upper lobe granuloma. no xxxx suspicious pulmonary mass or nodule is identified. there is no focal airspace consolidation. no pleural effusion or pneumothorax. the lungs remain hyperexpanded. stable cardiomediastinal silhouette. calcified mediastinal and hilar lymph xxxx are consistent with prior granulomatous disease. there are minimal degenerative changes of the spine.",
+    "entropy": "no xxxx suspicious pulmonary nod or nodule identified. however given the presence of a nodules on the xxxx chest ct scan and patient history of prostate cancer recommend further evaluation with xxxx scan (unless already recently performed). there is a calcified n/right lobe granuloma. the xxxx suspicious pulmonary mass or nodule is identified. there isnt focal airspace consolidation. there pleural effusion or pneumothorax. the lungs remain hyperexpanded. cardiomediastinal silhouette. calcified mediastinal and hilar lymph xxxx are consistent with previous granulomatous disease. there are minimal degenerative changes of the spine.",
+    "triage": "no xxxx suspicious pulmonary nod or nodule identified. however given the presence of a nodules on the xxxx chest ct scan and patient history of prostate cancer recommend further evaluation with xxxx scan (unless already recently performed). there is a calcified n lung lobe granuloma. the xxxx suspicious pulmonary mass or nodule is identified. there is a focal airspace consolidation. there pleural effusion or pneumothorax. the lungs remain hyperexpanded. the cardiomediastinal silhouette. calcified mediastinal and hilar lymph xxxx are consistent with previous granulomatous disease. there are minimal degenerative changes of the spine."
+  },
+  {
+    "report_id": "CXR547_IM-2151-2001.png",
+    "gold": "no radiographic evidence of acute cardiopulmonary disease. the lungs are clear without evidence of focal airspace disease. there is no evidence of pneumothorax or large pleural effusion. the cardiac and mediastinal contours are within normal limits. there are degenerative changes throughout the thoracic spine.",
+    "entropy": "no radiographic evidence of bone cardiopulmonary disease. the lungs are clear. evidence of focal airspace disease. there isnt evidence of pneumothorax orphans pleural effusion. the cardiac and mediastinal contours are within normal limits. there are degenerative changes throughout the thoracic spine.",
+    "triage": "no radiographic evidence of a cardiopulmonary disease. the lungs are clear. evidence of focal airspace disease. there is no evidence of pneumothorax or ple pleural effusion. the cardiac and mediastinal contours are within normal limits. there are degenerative changes throughout the thoracic spine."
+  },
+  {
+    "report_id": "CXR1523_IM-0339-3001.png",
+    "gold": "no acute cardiopulmonary process. heart size cardiomediastinal silhouette and pulmonary vasculature are within normal limits. there are no infiltrates effusions or pneumothorax.",
+    "entropy": "noinspection cardiopulmonary process. heart size cardiomediastinal silhouette and pulmonary vasculature are within normal limits. there are no infiltrates effusions or pneumothorax.",
+    "triage": "no limp cardiopulmonary process. heart size cardiomediastinal silhouette and pulmonary vasculature are within normal limits. there are no infiltrates effusions or pneumothorax."
+  },
+  {
+    "report_id": "CXR1320_IM-0207-1001.png",
+    "gold": "low lung volumes. no acute pulmonary disease. calcified granuloma is noted in the left upper lobe. there are low lung volumes with bronchovascular crowding as a result. heart size is within normal limits. normal mediastinal contours. no pleural effusion pneumothorax or focal airspace disease. no free subdiaphragmatic air. the osseous structures are grossly intact.",
+    "entropy": "low lung volumes. Theinspection pulmonary disease. calcified granuloma is noted in the latter/right lobe. there are low lung volumes with bronchovascular crowding as a result. heart size is within normal limits. normal mediastinal contours. no pleural effusion pneumothorax or focal airspace disease. \ninspection subdiaphragmatic air. the osseous structures are grossly intact.",
+    "triage": "low lung volumes. The. pulmonary disease. calcified granuloma is noted in the right lung lobe. there are low lung volumes with bronchovascular crowding as a result. heart size is within normal limits. normal mediastinal contours. no pleural effusion pneumothorax or focal airspace disease. no pulmonary subdiaphragmatic air. the osseous structures are grossly intact."
+  },
+  {
+    "report_id": "CXR961_IM-2452-84646002.png",
+    "gold": "xxxx opacity projecting over the left midlung. comparison examinations would be useful. if no comparison examinations exist xxxx would be helpful for further evaluation. there is a xxxx opacity projecting over the left midlung posterior on the lateral view. no pleural effusions. no evidence of pneumothorax. heart size top normal. degenerative changes thoracic spine.",
+    "entropy": "xxxx\n projecting over the top midlung. comparison examinations would be useful. if  comparison examinations exist xxxx would be helpful for further evaluation. there is a xxxx in projecting over the left midlung posterior on the lateral view. \n pleural effusions. no evidence of pneumothorax. heart size top normal. degenerative changes thoracic spine.",
+    "triage": "xxxx\n projecting over the top midlung. comparison examinations would be useful. if there comparison examinations exist xxxx would be helpful for further evaluation. there is a xxxx in projecting over the left midlung posterior on the lateral view. the pleural effusions. no evidence of pneumothorax. heart size top normal. degenerative changes thoracic spine."
+  },
+  {
+    "report_id": "CXR3890_IM-1973-1001.png",
+    "gold": "no acute cardiopulmonary abnormality. lungs are clear bilaterally with no focal infiltrate pleural effusion or pneumothoraces. cardiomediastinal silhouette is within normal limits. xxxx and soft tissues are unremarkable.",
+    "entropy": "noinspection cardiopulmonary abnormality. lungs are clear bilaterally with regards focal infiltrate pleural effusion or pneumothoraces. cardiomediastinal silhouette is within normal limits. xxxx and soft tissues are unremarkable.",
+    "triage": "no limp cardiopulmonary abnormality. lungs are clear bilaterally with no focal infiltrate pleural effusion or pneumothoraces. cardiomediastinal silhouette is within normal limits. xxxx and soft tissues are unremarkable."
+  },
+  {
+    "report_id": "CXR2422_IM-0965-1001.png",
+    "gold": "bibasilar pneumonia. consolidation is developing in the left lower lobe. a patchy infiltrate is also present in the right lower lobe. heart size is normal.",
+    "entropy": "bibasilar pneumonia. The is developing in the lungs/right lobe. a patchy infiltrate is also present in the aforementioned/left lobe. heart size is normal.",
+    "triage": "bibasilar pneumonia. The is developing in the lungs lung lobe. a patchy infiltrate is also present in the right upper lobe. heart size is normal."
+  },
+  {
+    "report_id": "CXR2848_IM-1256-1001.png",
+    "gold": "no evidence of active tuberculosis. mild cardiomegaly. lungs are clear. calcified hilar xxxx. no pleural effusion or pneumothorax. soft tissues and showed unremarkable.",
+    "entropy": "no evidence of active tuberculosis. \n cardiomegaly. lungs are clear. calcified hilar xxxx. no pleural effusion or pneumothorax. soft tissues and showed unremarkable.",
+    "triage": "no evidence of active tuberculosis. The cardiomegaly. lungs are clear. calcified hilar xxxx. no pleural effusion or pneumothorax. soft tissues and showed unremarkable."
+  },
+  {
+    "report_id": "CXR2570_IM-1073-2001.png",
+    "gold": "cardiomegaly which appears xxxx from xxxx with probable mild pulmonary edema. there has been interval increase in size of the cardiac silhouette from xxxx. the cardiac fluid is now mildly enlarged. pulmonary vasculature is increased with mildly increased interstitial markings and fissural thickening suggesting mild pulmonary edema. there is no focal airspace disease pneumothorax or large pleural effusion. descending thoracic aorta is tortuous. there are no acute bony findings.",
+    "entropy": "cardiomegaly which appears xxxx from xxxx with probablemente pulmonary edema. there has been no increase in size of the cardiac silhouette from xxxx. the cardiac fluid is now mildly enlarged. pulmonary vasculature is increased with mildly increased interstitial markings and fissural thickening suggesting pulmonary pulmonary edema. there isnt focal airspace disease pneumothorax orphans pleural effusion. descending thoracic aorta is tortuous. there arentinspection bony findings.",
+    "triage": "cardiomegaly which appears xxxx from xxxx with probable pulmonary pulmonary edema. there has been no increase in size of the cardiac silhouette from xxxx. the cardiac fluid is now mildly enlarged. pulmonary vasculature is increased with mildly increased interstitial markings and fissural thickening suggesting mild pulmonary edema. there is no focal airspace disease pneumothorax or ple pleural effusion. descending thoracic aorta is tortuous. there are no abnormalities bony findings."
+  },
+  {
+    "report_id": "CXR1225_IM-0150-1001.png",
+    "gold": "no acute abnormality identified. heart size is normal. there is mild tortuosity of the thoracic aorta. no consolidating airspace disease is seen. no pleural effusion or pneumothorax.",
+    "entropy": "noinspection abnormality identified. heart size is normal. there isnt tortuosity of the thoracic aorta. there consolidating airspace disease is seen. \n pleural effusion or pneumothorax.",
+    "triage": "no limp abnormality identified. heart size is normal. there is no tortuosity of the thoracic aorta. there consolidating airspace disease is seen. there pleural effusion or pneumothorax."
+  },
+  {
+    "report_id": "CXR372_IM-1858-0001-0002.png",
+    "gold": "left retrocardiac airspace disease could reflect atelectasis and possible scarring. small left pleural effusion. left retrocardiac airspace disease with blunted posterior costophrenic xxxx on lateral view suggesting small pleural effusion. normal heart size. right picc is unchanged with tip at the caval atrial junction.",
+    "entropy": "left retrocardiac airspace disease could reflect atelectasis and possible scarring. \n(er pleural effusion. \n retrocardiac airspace disease with blunted posterior costophrenic xxxx on lateral view suggesting possible pleural effusion. normal heart size. normal picc is unchanged with tip at the caval atrial junction.",
+    "triage": "left retrocardiac airspace disease could reflect atelectasis and possible scarring. The air pleural effusion. retrocardiac airspace disease with blunted posterior costophrenic xxxx on lateral view suggesting possible pleural effusion. normal heart size. normal picc is unchanged with tip at the caval atrial junction."
+  },
+  {
+    "report_id": "CXR113_IM-0086-3001.png",
+    "gold": "no acute cardiopulmonary disease. the heart and mediastinum are unremarkable. there are two subcentimeter hyperdense nodular opacities are noted within the right lung. these may represent xxxx on end or alternatively calcified granulomas. the lungs are clear without infiltrate. there is no effusion or pneumothorax.",
+    "entropy": "noinspection cardiopulmonary disease. the heart and mediastinum are unremarkable. there are two subcentimeter hyperdense nodular opacities are noted within the latter lung. these may represent xxxx on end or alternatively calcified granulomas. the lungs are clear bil infiltrate. there isnt effusion or pneumothorax.",
+    "triage": "no limp cardiopulmonary disease. the heart and mediastinum are unremarkable. there are two subcentimeter hyperdense nodular opacities are noted within the lungs lung. these may represent xxxx on end or alternatively calcified granulomas. the lungs are clear bil infiltrate. there is no effusion or pneumothorax."
+  },
+  {
+    "report_id": "CXR1257_IM-0174-2001.png",
+    "gold": "right basilar opacities favored to represent atelectasis. stigmata of xxxx cell disease. cholelithiasis. mild cardiomegaly. hypoinflation of the lungs. right basilar xxxx opacity may represent atelectasis. lungs are otherwise clear without focal consolidation pleural effusion or pneumothorax. sclerosis of the humeral xxxx bilateral xxxx from prior avn. sclerotic vertebral body endplates with central depression. calcifications in the right hemiabdomen may represent calcified gallstones.",
+    "entropy": "right basilar opacities favored to represent atelectasis. stigmata of xxxx cell disease. cholelithiasis. ch cardiomegaly. hypoinflation of the lungs.etc basilar xxxx op may represent atelectasis. lungs are otherwise clear. focalizer pleural effusion or pneumothorax. sclerosis of the humeral xxxx may xxxx from/to avn. sclerotic vertebral body endplates with central depression. calcifications in the latter hemiabdomen may represent calcified gallstones.",
+    "triage": "right basilar opacities favored to represent atelectasis. stigmata of xxxx cell disease. cholelithiasis. ch cardiomegaly. hypoinflation of the lungs. basilar xxxx op may represent atelectasis. lungs are otherwise clear. focal or pleural effusion or pneumothorax. sclerosis of the humeral xxxx may xxxx from the avn. sclerotic vertebral body endplates with central depression. calcifications in the right hemiabdomen may represent calcified gallstones."
+  },
+  {
+    "report_id": "CXR3184_IM-1503-1001.png",
+    "gold": "no acute cardiopulmonary abnormality. the aortic xxxx is mildly tortuous. the cardiomediastinal silhouette and pulmonary vasculature are within normal limits. there is no pneumothorax or pleural effusion. there are no focal areas of consolidation. there are t-spine osteophytes. large body habitus.",
+    "entropy": "noinspection cardiopulmonary abnormality. the aortic xxxx is mildly tortuous. the cardiomediastinal silhouette and pulmonary vasculature are within normal limits. there isnt pneumothorax or pleural effusion. there arent focal areas of \u200b\u200b. there are t-spine osteophytes. there body habitus.",
+    "triage": "no limp cardiopulmonary abnormality. the aortic xxxx is mildly tortuous. the cardiomediastinal silhouette and pulmonary vasculature are within normal limits. there is no pneumothorax or pleural effusion. there are no focal areas of abnormal. there are t-spine osteophytes. there body habitus."
+  },
+  {
+    "report_id": "CXR3822_IM-1930-1001.png",
+    "gold": "mediastinal cardiac size stable. no pneumothoraces or large pleural effusions. pulmonary granulomas. no acute pulmonary process. no acute displaced rib fractures.",
+    "entropy": "mediastinal cardiac size on. The pneumothoraces or/or pleural effusions. pulmonary granulomas. noinspection pulmonary process. noinspection displaced rib fractures.",
+    "triage": "mediastinal cardiac size on. The pneumothoraces or pneum pleural effusions. pulmonary granulomas. no ple pulmonary process. no ple displaced rib fractures."
+  },
+  {
+    "report_id": "CXR3945_IM-2014-1001.png",
+    "gold": "increased size of left pneumothorax with xxxx partial collapse of the left upper and lower lobes. small left pleural effusionhemothorax. there is increased size of left pneumothorax with xxxx partial collapse of the left upper and lower lobes. this pneumothorax measures up to 5 cm in maximum width at the apex. there is no significant mediastinal shift. the right lung remains clear. cardiomediastinal silhouette is within normal limits. there is a small left pleural effusionhemothorax. no focal air space opacities. no free subdiaphragmatic air.",
+    "entropy": "increased size of the pneumothorax with xxxx partial collapse of the aforementioned/right and/or lobes. \n/small pleural effusionhemothorax. there is increased size of left pneumothorax with xxxx partial collapse of the latter/right and/or lobes. this pneumothorax measures up to 1 cm in maximum width at the apex. there isnt significant mediastinal shift. the chest lung remains clear. cardiomediastinal silhouette is within normal limits. there is a slight left pleural effusionhemothorax. focal air space opacities. noinspection subdiaphragmatic air.",
+    "triage": "increased size of the pneumothorax with xxxx partial collapse of the lung lung and middle lobes.  amount pleural effusionhemothorax. there is increased size of left pneumothorax with xxxx partial collapse of the left upper and lower lobes. this pneumothorax measures up to 10 in maximum width at the apex. there is also significant mediastinal shift. the patient lung remains clear. cardiomediastinal silhouette is within normal limits. there is a small left pleural effusionhemothorax. focal air space opacities. no pulmonary subdiaphragmatic air."
+  },
+  {
+    "report_id": "CXR1280_IM-0187-1001.png",
+    "gold": "no acute abnormality. the cardiac silhouette and mediastinum size are within normal limits. there is no pulmonary edema. there is no focal consolidation. there are no xxxx of pleural effusion. there is no evidence of pneumothorax.",
+    "entropy": "noinspection abnormality. the cardiac silhouette and mediastinum size are within normal limits. there isnt pulmonary edema. there isnt focalizer. there are no xxxx of pleural effusion. there isnt evidence of pneumothorax.",
+    "triage": "no limp abnormality. the cardiac silhouette and mediastinum size are within normal limits. there is no pulmonary edema. there is no focal or. there are no xxxx of pleural effusion. there is no evidence of pneumothorax."
+  },
+  {
+    "report_id": "CXR3682_IM-1834-1001.png",
+    "gold": "no acute cardiopulmonary abnormality. the lungs are hypoventilated. there is no focal airspace opacity. the cardiomediastinal silhouette is normal in size. there is no pneumothorax or large pleural effusion.",
+    "entropy": "noinspection cardiopulmonary abnormality. the lungs are hypoventilated. there isnt focal airspace consolidation. the cardiomediastinal silhouette is normal in size. there isnt pneumothorax orphans pleural effusion.",
+    "triage": "no limp cardiopulmonary abnormality. the lungs are hypoventilated. there is a focal airspace consolidation. the cardiomediastinal silhouette is normal in size. there is no pneumothorax or ple pleural effusion."
+  },
+  {
+    "report_id": "CXR2102_IM-0733-2001.png",
+    "gold": "no acute cardiopulmonary abnormality. tortuosity of the aorta. no pneumothorax pleural effusion or airspace consolidation. cardiomediastinal size is within normal limits. pulmonary vasculature is normal . xxxx xxxx intact. unchanged eventration of the left hemidiaphragm versus small hernia (bochdalek).",
+    "entropy": "noinspection cardiopulmonary abnormality. tortuosity of the aorta. a pneumothorax pleural effusion or airspace op. cardiomediastinal size is within normal limits. pulmonary vasculature is normal . xxxx xxxx intact. unchanged eventration of the aforementioned hemidiaphragm versus/or hernia (bochdalek).",
+    "triage": "no limp cardiopulmonary abnormality. tortuosity of the aorta. a pneumothorax pleural effusion or airspace op. cardiomediastinal size is within normal limits. pulmonary vasculature is normal . xxxx xxxx intact. unchanged eventration of the a hemidiaphragm versus normal hernia (bochdalek)."
+  },
+  {
+    "report_id": "CXR1021_IM-0017-1001-0001.png",
+    "gold": "recurrent right pneumothorax complete collapse of the right lung near 100%. right-to-left mediastinal shift is present suggesting xxxx physiology.",
+    "entropy": "recurrently pneumothorax complete collapse of the entire lung near  agestth%. I-to-left mediastinal shift is present suggesting xxxx physiology.",
+    "triage": "recurrent neural pneumothorax complete collapse of the lung lung near  age year years%. I-to-left mediastinal shift is present suggesting xxxx physiology."
+  },
+  {
+    "report_id": "CXR30_IM-1385-2001.png",
+    "gold": "negative acute cardiopulmonary abnormality. lungs are clear without focal consolidation effusion or pneumothorax. normal heart size. negative for pneumoperitoneum. bony thorax and soft tissue grossly unremarkable",
+    "entropy": "negative\n cardiopulmonary abnormality. lungs are clear. focalizer effusion or pneumothorax. normal heart size. \n for pneumoperitoneum. bony thorax and soft tissue grossly unremarkable",
+    "triage": "negative\n cardiopulmonary abnormality. lungs are clear. focal infiltr effusion or pneumothorax. normal heart size. no for pneumoperitoneum. bony thorax and soft tissue grossly unremarkable"
+  },
+  {
+    "report_id": "CXR2836_IM-1252-1001.png",
+    "gold": "mild cardiomegaly. basilar atelectasis. frontal and lateral views of the chest with overlying external cardiac monitor leads show reduced lung volumes with bronchovascular crowding of basilar atelectasis. no definite focal airspace consolidation or pleural effusion. the cardiac silhouette appears mildly enlarged.",
+    "entropy": "mild cardiomegaly. basilar atelectasis. frontal and lateral views of the chest with overlying external cardiac monitor leads show reduced lung volumes with bronchovascular crowding of basilar atelectasis. \n definite focal airspace op or pleural effusion. the cardiac silhouette appears mildly enlarged.",
+    "triage": "mild cardiomegaly. basilar atelectasis. frontal and lateral views of the chest with overlying external cardiac monitor leads show reduced lung volumes with bronchovascular crowding of basilar atelectasis. the definite focal airspace op or pleural effusion. the cardiac silhouette appears mildly enlarged."
+  },
+  {
+    "report_id": "CXR2786_IM-1221-2001.png",
+    "gold": "no acute cardiopulmonary abnormality.. the lungs are clear bilaterally. specifically no evidence of focal consolidation pneumothorax or pleural effusion.. cardio mediastinal silhouette is unremarkable. visualized osseous structures of the thorax are without acute abnormality.",
+    "entropy": "noinspection cardiopulmonary abnormality.. the lungs are clear bilaterally. specificallyally evidence of focalizer pneumothorax or pleural effusion.. cardio mediastinal silhouette is unremarkable. visualized osseous structures of the thorax arent any abnormality.",
+    "triage": "no limp cardiopulmonary abnormality.. the lungs are clear bilaterally. specifically, evidence of focal pulmonary pneumothorax or pleural effusion.. cardio mediastinal silhouette is unremarkable. visualized osseous structures of the thorax are normal abnormalities abnormality."
+  },
+  {
+    "report_id": "CXR1704_IM-0464-1001.png",
+    "gold": "lines and tubes as above. moderate-to-large left pleural effusion with adjacent airspace disease or atelectasis. there is blunting of the left costophrenic xxxx compatible with a moderate to large left pleural fluid collection. there are areas of airspace opacity within the left lung base which may represent atelectasis or infiltrate. minimal bandlike atelectasis within the right lung base. heart size is normal. left-sided tunneled catheter terminates at the caval atrial junction. right ij venous catheter terminates at the proximal svc.",
+    "entropy": "lines and tubes as above. The-to-large/small pleural effusion with adjacent airspace disease or atelectasis. there is blunting of the aforementioned costophrenic xxxx compatible with a large to/from-scale pleural fluid collection. there are areas of airspace disease within the latter lung base which may represent atelectasis or infiltrate. minimal bandlike atelectasis within the latter lung base. heart size is normal. etc-sided tunneled catheter terminates at the caval atrial junction. right ij venous catheter terminates at the proximal svc.",
+    "triage": "lines and tubes as above. The-to-large-scale pleural effusion with adjacent airspace disease or atelectasis. there is blunting of the cost costophrenic xxxx compatible with a large to large ple pleural fluid collection. there are areas of airspace disease within the lungs lung base which may represent atelectasis or infiltrate. minimal bandlike atelectasis within the left lung base. heart size is normal. no-sided tunneled catheter terminates at the caval atrial junction. right ij venous catheter terminates at the proximal svc."
+  },
+  {
+    "report_id": "CXR210_IM-0730-1001.png",
+    "gold": "no acute pulmonary disease. there are numerous surgical clips at the thoracic inlet. small areas of xxxx scarring are seen in the left base. the lungs are otherwise clear. there is no pleural effusion or pneumothorax. the heart and mediastinum are normal. the skeletal structures are normal.",
+    "entropy": "noinspection pulmonary disease. there are numerous surgical clips at the thoracic inlet. \n areas of xxxx scarring are seen in the upper base. the lungs are otherwise clear. there isnt pleural effusion or pneumothorax. the heart and mediastinum are normal. the skeletal structures are normal.",
+    "triage": "no limp pulmonary disease. there are numerous surgical clips at the thoracic inlet.  areas of xxxx scarring are seen in the lung base. the lungs are otherwise clear. there is no pleural effusion or pneumothorax. the heart and mediastinum are normal. the skeletal structures are normal."
+  },
+  {
+    "report_id": "CXR2113_IM-0742-1002.png",
+    "gold": "no acute radiographic cardiopulmonary process. the heart size is normal. the mediastinal contour is within normal limits. the lungs are free of any focal infiltrates. mild lung hyperinflation. there are no nodules or masses. no visible pneumothorax. no visible pleural fluid. degenerative changes seen within the midthoracic spine. there is no visible free intraperitoneal air under the diaphragm.",
+    "entropy": "noinspection radiographic cardiopulmonary process. the heart size is normal. the mediastinal contour is within normal limits. the lungs are normal of any focal infiltrates. \n lung hyperinflation. there are no nodules or masses. there visible pneumothorax. no visible pleural fluid. degenerative changes seen within the midthoracic spine. there isnt visible ky intraperitoneal air under the diaphragm.",
+    "triage": "no limp radiographic cardiopulmonary process. the heart size is normal. the mediastinal contour is within normal limits. the lungs are clear of any focal infiltrates. there lung hyperinflation. there are no nodules or masses. there visible pneumothorax. the visible pleural fluid. degenerative changes seen within the midthoracic spine. there is no visible ky intraperitoneal air under the diaphragm."
+  },
+  {
+    "report_id": "CXR2953_IM-1351-2001.png",
+    "gold": "no acute pulmonary disease. the lungs are clear. there is no pleural effusion or pneumothorax. the heart and mediastinum are normal. the skeletal structures are normal.",
+    "entropy": "noinspection pulmonary disease. the lungs are clear. there isnt pleural effusion or pneumothorax. the heart and mediastinum are normal. the skeletal structures are normal.",
+    "triage": "no limp pulmonary disease. the lungs are clear. there is no pleural effusion or pneumothorax. the heart and mediastinum are normal. the skeletal structures are normal."
+  },
+  {
+    "report_id": "CXR2446_IM-0982-1001.png",
+    "gold": "no active disease. the heart and lungs have xxxx xxxx in the interval. both lungs are clear and expanded. the aorta is tortuous but the heart and mediastinum otherwise normal.",
+    "entropy": "no active disease. the heart and lungs have xxxx xxxx in the meantime. both lungs are clear and expanded. the aorta is tortuous but the heart and mediastinum otherwise normal.",
+    "triage": "no active disease. the heart and lungs have xxxx xxxx in the past. both lungs are clear and expanded. the aorta is tortuous but the heart and mediastinum otherwise normal."
+  },
+  {
+    "report_id": "CXR3309_IM-1583-1001.png",
+    "gold": "no acute cardiopulmonary findings. heart and mediastinum are within normal limits. no focal consolidation. no large pleural effusion or pneumothorax. no acute bony abnormality.",
+    "entropy": "noinspection cardiopulmonary findings. heart and mediastinum are within normal limits. \n focalizer. \ninspection pleural effusion or pneumothorax. \ninspection bony abnormality.",
+    "triage": "no limp cardiopulmonary findings. heart and mediastinum are within normal limits. no focal neurological. lungs ple pleural effusion or pneumothorax. no medi bony abnormality."
+  },
+  {
+    "report_id": "CXR356_IM-1744-1001.png",
+    "gold": "no acute radiographic cardiopulmonary process. the cardiomediastinal silhouette is within normal limits for size and contour. the lungs are normally inflated without evidence of focal airspace disease pleural effusion or pneumothorax. osseous structures are within normal limits for patient age..",
+    "entropy": "noinspection radiographic cardiopulmonary process. the cardiomediastinal silhouette is within normal limits for size and contour. the lungs are normally inflated and evidence of focal airspace disease pleural effusion or pneumothorax. osseous structures are within normal limits for patient age..",
+    "triage": "no limp radiographic cardiopulmonary process. the cardiomediastinal silhouette is within normal limits for size and contour. the lungs are normally inflated and evidence of focal airspace disease pleural effusion or pneumothorax. osseous structures are within normal limits for patient age.."
+  },
+  {
+    "report_id": "CXR3784_IM-1898-2001.png",
+    "gold": "no acute abnormality. ap view was obtained due to patient condition. low volume lungs. no focal lung consolidation. the heart is not enlarged. no pleural effusion.",
+    "entropy": "noinspection abnormality. ap view was obtained due to patient condition. low volume lungs. no focal lung abnormal. the heart isotope enlarged. no pleural effusion.",
+    "triage": "no limp abnormality. ap view was obtained due to patient condition. low volume lungs. no focal lung abnormal. the heart is enlarged enlarged. no pleural effusion."
+  }
+]

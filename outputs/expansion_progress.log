@@ -1,0 +1,106 @@
+=== expansion started Tue Jun 23 01:04:11 EDT 2026 ===
+>>> qwen05b-64 @ Tue Jun 23 01:04:11 EDT 2026
+/Users/boddu/Documents/govinda/codex/TokenTriage/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Wrote outputs/pg-iuxray-qwen05b-64/traces.jsonl
+Wrote outputs/pg-iuxray-qwen05b-64/policy_results.csv
+Wrote outputs/pg-iuxray-qwen05b-64/paper_results.md
+Best TokenTriage: entropy=0.10,min=0.85,k=4, compute_saved=0.0846, critical_disagreement=0.0117
+<<< qwen05b-64 done rc=0 @ Tue Jun 23 01:08:14 EDT 2026
+>>> smollm2-64 @ Tue Jun 23 01:08:14 EDT 2026
+/Users/boddu/Documents/govinda/codex/TokenTriage/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Wrote outputs/pg-iuxray-smollm2-64/traces.jsonl
+Wrote outputs/pg-iuxray-smollm2-64/policy_results.csv
+Wrote outputs/pg-iuxray-smollm2-64/paper_results.md
+Best TokenTriage: entropy=0.10,min=0.85,k=4, compute_saved=0.8305, critical_disagreement=0.3066
+<<< smollm2-64 done rc=0 @ Tue Jun 23 01:11:53 EDT 2026
+>>> qwen3b-64 @ Tue Jun 23 01:11:53 EDT 2026
+/Users/boddu/Documents/govinda/codex/TokenTriage/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [01:20<01:20, 80.83s/it]Fetching 2 files: 100%|██████████| 2/2 [01:20<00:00, 40.42s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  2.17it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.14it/s]
+Wrote outputs/pg-iuxray-qwen3b-64/traces.jsonl
+Wrote outputs/pg-iuxray-qwen3b-64/policy_results.csv
+Wrote outputs/pg-iuxray-qwen3b-64/paper_results.md
+Best TokenTriage: entropy=0.10,min=0.85,k=4, compute_saved=0.2974, critical_disagreement=0.1848
+<<< qwen3b-64 done rc=0 @ Tue Jun 23 01:22:03 EDT 2026
+>>> roco-64 @ Tue Jun 23 01:22:03 EDT 2026
+Traceback (most recent call last):
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/scripts/run_paper_grade.py", line 53, in <module>
+    main()
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/scripts/run_paper_grade.py", line 24, in main
+    results = run_paper_grade_experiment(
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/token_triage/paper_grade.py", line 568, in run_paper_grade_experiment
+    traces, reports, layers = generate_traces(
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/token_triage/paper_grade.py", line 140, in generate_traces
+    reports = fetch_hf_reports(
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/token_triage/hf_dataset.py", line 43, in fetch_hf_reports
+    with urllib.request.urlopen(f"{HF_DATASET_VIEWER}/rows?{params}", timeout=60) as response:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 523, in open
+    response = meth(req, response)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 632, in http_response
+    response = self.parent.error(
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 561, in error
+    return self._call_chain(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 641, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+<<< roco-64 done rc=1 @ Tue Jun 23 01:22:54 EDT 2026
+>>> qwen15b-256 @ Tue Jun 23 01:22:54 EDT 2026
+Traceback (most recent call last):
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/scripts/run_paper_grade.py", line 53, in <module>
+    main()
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/scripts/run_paper_grade.py", line 24, in main
+    results = run_paper_grade_experiment(
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/token_triage/paper_grade.py", line 568, in run_paper_grade_experiment
+    traces, reports, layers = generate_traces(
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/token_triage/paper_grade.py", line 140, in generate_traces
+    reports = fetch_hf_reports(
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/token_triage/hf_dataset.py", line 43, in fetch_hf_reports
+    with urllib.request.urlopen(f"{HF_DATASET_VIEWER}/rows?{params}", timeout=60) as response:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 523, in open
+    response = meth(req, response)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 632, in http_response
+    response = self.parent.error(
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 561, in error
+    return self._call_chain(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 641, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+<<< qwen15b-256 done rc=1 @ Tue Jun 23 01:22:54 EDT 2026
+>>> phi35-64 @ Tue Jun 23 01:22:54 EDT 2026
+Traceback (most recent call last):
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/scripts/run_paper_grade.py", line 53, in <module>
+    main()
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/scripts/run_paper_grade.py", line 24, in main
+    results = run_paper_grade_experiment(
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/token_triage/paper_grade.py", line 568, in run_paper_grade_experiment
+    traces, reports, layers = generate_traces(
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/token_triage/paper_grade.py", line 140, in generate_traces
+    reports = fetch_hf_reports(
+  File "/Users/boddu/Documents/govinda/codex/TokenTriage/token_triage/hf_dataset.py", line 43, in fetch_hf_reports
+    with urllib.request.urlopen(f"{HF_DATASET_VIEWER}/rows?{params}", timeout=60) as response:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 523, in open
+    response = meth(req, response)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 632, in http_response
+    response = self.parent.error(
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 561, in error
+    return self._call_chain(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 641, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+<<< phi35-64 done rc=1 @ Tue Jun 23 01:22:54 EDT 2026
+=== expansion finished Tue Jun 23 01:22:54 EDT 2026 ===

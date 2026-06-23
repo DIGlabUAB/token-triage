@@ -1,0 +1,70 @@
+[
+  {
+    "run": "paper-grade-iuxray-qwen25-64-deployable",
+    "labels": [
+      "Enlarged Cardiomediastinum",
+      "Cardiomegaly",
+      "Lung Opacity",
+      "Lung Lesion",
+      "Edema",
+      "Consolidation",
+      "Pneumonia",
+      "Atelectasis",
+      "Pneumothorax",
+      "Pleural Effusion",
+      "Pleural Other",
+      "Fracture",
+      "Support Devices",
+      "No Finding"
+    ],
+    "reports": 64,
+    "entropy_report_change_rate": 0.75,
+    "triage_report_change_rate": 0.5156,
+    "entropy_finding_discordance": 0.1105,
+    "triage_finding_discordance": 0.0748,
+    "entropy_findings_flipped": 99,
+    "triage_findings_flipped": 67,
+    "entropy_added/dropped": [
+      74,
+      25
+    ],
+    "triage_added/dropped": [
+      50,
+      17
+    ]
+  },
+  {
+    "run": "pg-iuxray-qwen15b-256",
+    "labels": [
+      "Enlarged Cardiomediastinum",
+      "Cardiomegaly",
+      "Lung Opacity",
+      "Lung Lesion",
+      "Edema",
+      "Consolidation",
+      "Pneumonia",
+      "Atelectasis",
+      "Pneumothorax",
+      "Pleural Effusion",
+      "Pleural Other",
+      "Fracture",
+      "Support Devices",
+      "No Finding"
+    ],
+    "reports": 256,
+    "entropy_report_change_rate": 0.6992,
+    "triage_report_change_rate": 0.4609,
+    "entropy_finding_discordance": 0.1116,
+    "triage_finding_discordance": 0.0625,
+    "entropy_findings_flipped": 400,
+    "triage_findings_flipped": 224,
+    "entropy_added/dropped": [
+      307,
+      93
+    ],
+    "triage_added/dropped": [
+      163,
+      61
+    ]
+  }
+]
