@@ -54,12 +54,12 @@
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth]{figures/overview.pdf}
-  \caption{Overview of \method{}. (1) A risk tagger marks each report token as ordinary or clinically
-  critical (negation, laterality, severity, measurement, finding). (2) Tokens are routed through the
-  layers by risk: ordinary tokens take a cheap confidence exit at a shallow layer, while critical
-  tokens are held until they reach a minimum depth and the same top prediction has been stable for $k$
-  consecutive layers. (3) The result keeps most of the compute saving on ordinary tokens while
-  preserving the full-model decision on the tokens whose errors would change the clinical meaning.}
+  \caption{Overview of \method{}. The clinically critical word \emph{no} is decoded two ways by the
+  same model. A confidence-only early exit stops at a shallow layer, before the prediction has settled,
+  and drops the negation, so the report reads \emph{acute cardiopulmonary disease} and the finding is
+  reversed. \method{} holds the same word until a deeper layer at which the top prediction has been
+  stable for $k$ consecutive layers, which preserves \emph{no} and the original finding. Ordinary words
+  still take the cheap early exit, so most of the compute saving is kept.}
   \label{fig:overview}
 \end{figure}
 

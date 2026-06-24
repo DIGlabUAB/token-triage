@@ -13,8 +13,7 @@
   --code-bg: #0e1417;
   --code-ink: #d4e6e1;
   --inline: #f3f4f1;
-  --maxw: 1080px;
-  --measure: 78ch;
+  --maxw: 900px;
   --mono: "Spline Sans Mono", ui-monospace, "JetBrains Mono", SFMono-Regular, Menlo, monospace;
   --display: "Martian Mono", "Spline Sans Mono", ui-monospace, monospace;
 }
@@ -125,10 +124,9 @@ h3 { font-size: 14.5px; margin: 18px 0 8px; color: var(--ink); }
 
 .abstract { padding: 26px 0; }
 .abstract h2 { text-align: left; border: 0; padding: 0; margin-bottom: 12px; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; }
-.abstract p { max-width: var(--measure); margin: 0; color: #23292b; }
+.abstract p { margin: 0; color: #23292b; }
 
-/* keep long-form prose at a readable measure; figures, tables, and grids span full width */
-section > p, section > ul, .lead, .story-sub, .demo-cap, .faq p, .note, .abstract p, figcaption, caption, .tbl-cap { max-width: var(--measure); }
+/* every block fills the same column width for consistent left and right edges */
 
 p, li { color: #23292b; }
 .muted { color: var(--muted); }
@@ -238,7 +236,7 @@ footer a { color: var(--muted); }
    Narrative + animation layer (story sections)
    ========================================================= */
 .story-h { font-family: var(--display); font-weight: 600; font-size: clamp(18px, 2.3vw, 23px); letter-spacing: -0.04em; margin: 0 0 10px; }
-.story-sub { color: var(--muted); font-size: 15px; max-width: 70ch; margin: 0 0 22px; }
+.story-sub { color: var(--muted); font-size: 15px; margin: 0 0 22px; }
 section.story { border-bottom: 1px solid var(--rule); padding: 34px 0; }
 .kicker { display:inline-block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-deep); margin-bottom:10px; }
 
