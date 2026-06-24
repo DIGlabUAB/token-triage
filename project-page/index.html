@@ -536,6 +536,8 @@ python scripts/build_chexbert_inputs.py    <span class="c"># perturbed reports p
         if (e.isIntersecting) { e.target.classList.add("in"); rObs.unobserve(e.target); }
       }), { threshold: 0.2 });
       revs.forEach(el => rObs.observe(el));
+      // safety net: never leave reveal content hidden
+      setTimeout(() => document.querySelectorAll(".reveal:not(.in)").forEach(el => el.classList.add("in")), 2200);
 
       // ----- count-up numbers -----
       function fmt(v, el) {
