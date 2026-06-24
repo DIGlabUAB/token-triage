@@ -17,17 +17,15 @@
     <header class="topbar">
       <a href="#top" class="home">TokenTriage</a>
       <nav>
-        <a href="#plain">Plain English</a>
-        <a href="#abstract">Abstract</a>
-        <a href="#motivation">Motivation</a>
-        <a href="#method">Method</a>
+        <a href="#demo">Demo</a>
+        <a href="#who">Who</a>
+        <a href="#findings">Findings</a>
+        <a href="#how">How</a>
         <a href="#results">Results</a>
-        <a href="#generalization">Generalization</a>
         <a href="#correctness">Correctness</a>
-        <a href="#entity">CheXbert</a>
-        <a href="#decoding">Decoding</a>
+        <a href="#quantize">vs. Quantization</a>
         <a href="#faq">FAQ</a>
-        <a href="#bibtex">BibTeX</a>
+        <a href="#bibtex">Cite</a>
       </nav>
     </header>
 
@@ -55,31 +53,133 @@
         </div>
       </div>
 
-      <!-- ============ OVERVIEW FIGURE ============ -->
-      <figure>
-        <img src="assets/overview.svg" alt="TokenTriage overview: risk tagger, risk-aware routing through the layers, and outcome" />
-        <figcaption><b>Figure 1.</b> Overview of TokenTriage. (1) A risk tagger marks each report token as ordinary or clinically critical (negation, laterality, severity, measurement, finding). (2) Tokens are routed through the layers by risk: ordinary tokens take a cheap confidence exit at a shallow layer, while critical tokens are held until they reach a minimum depth and the same top prediction has been stable for k consecutive layers. (3) The result keeps most of the compute saving on ordinary tokens while preserving the full-model decision on the tokens whose errors would change the clinical meaning.</figcaption>
-      </figure>
+      <!-- ============ ANIMATED DEMO ============ -->
+      <section id="demo" class="story">
+        <span class="kicker">The problem, in one example</span>
+        <h2 class="story-h">One rushed word can flip the diagnosis</h2>
+        <p class="story-sub">
+          To run faster and cheaper, an AI can decide each word at a shallow layer instead of using its full
+          depth. Watch the same sentence written two ways. Both race to save time; one rushes the word that
+          carries the finding.
+        </p>
+        <div class="demo" id="demoBox">
+          <div class="lane lane-bad">
+            <div class="lane-h"><span class="dot red"></span> Confidence-only shortcut</div>
+            <div class="words" id="rowBad"><span class="tok crit flip-target show flip">no</span><span class="tok show">acute</span><span class="tok show">cardiopulmonary</span><span class="tok show">disease</span></div>
+            <div class="verdict bad show" id="vBad">finding reversed: now reads “acute cardiopulmonary disease”</div>
+          </div>
+          <div class="lane lane-good">
+            <div class="lane-h"><span class="dot green"></span> TokenTriage</div>
+            <div class="words" id="rowGood"><span class="tok crit good-keep show">no</span><span class="tok show">acute</span><span class="tok show">cardiopulmonary</span><span class="tok show">disease</span></div>
+            <div class="verdict good show" id="vGood">finding preserved: reads “no acute cardiopulmonary disease”</div>
+          </div>
+        </div>
+        <p class="demo-cap">The two models run at the same speed. The shortcut spends its one risky guess on <code>no</code>; TokenTriage spends a little extra depth there and keeps it.</p>
+      </section>
 
-      <!-- ============ PLAIN LANGUAGE ============ -->
-      <section id="plain">
-        <div class="plain">
-          <h2>In plain language</h2>
-          <p class="big">
-            An AI that drafts a medical report can go faster by <strong>deciding each word early</strong>
-            instead of using its full depth of "thought." For filler words (<code>the</code>,
-            <code>and</code>) that is harmless. But a handful of words carry the whole meaning:
-            <code>no</code>, <code>left</code>, <code>severe</code>, a measurement, a disease name.
-            Get one of <em>those</em> wrong by rushing, and the report can say the opposite of what the
-            radiologist meant.
-          </p>
-          <p>
-            <strong>TokenTriage</strong> lets the AI rush the easy words but <strong>slow down only on
-            the few words where a mistake would change the diagnosis.</strong> It is a safety rule:
-            spend a little extra compute exactly where a wrong shortcut would matter to a patient, and
-            nowhere else. In our tests it cuts the rate at which shortcuts flip a clinical finding by
-            roughly half, while keeping most of the speed-up.
-          </p>
+      <!-- ============ WHO ============ -->
+      <section id="who" class="story">
+        <span class="kicker">Who this is for</span>
+        <h2 class="story-h">Anyone making a clinical language model run faster</h2>
+        <p class="story-sub">
+          Hospitals, imaging centers, and health-AI vendors increasingly use language models to draft,
+          summarize, or transcribe radiology reports. To control cost and latency they reach for speed-ups.
+          This work is the safety check those speed-ups are missing.
+        </p>
+        <div class="who-grid reveal">
+          <div class="who-card">
+            <span class="ic">deploys</span>
+            <h3>Clinical NLP teams</h3>
+            <p>Running report drafting or summarization in production and tuning it for speed.</p>
+          </div>
+          <div class="who-card">
+            <span class="ic">builds</span>
+            <h3>Inference / efficiency engineers</h3>
+            <p>Using early exit, speculative decoding, or quantization, and deciding which shortcuts are safe.</p>
+          </div>
+          <div class="who-card">
+            <span class="ic">reviews</span>
+            <h3>Safety &amp; regulatory reviewers</h3>
+            <p>Asking not just how accurate a model is on average, but where its mistakes land.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ THE GAP ============ -->
+      <section id="gap-story" class="story">
+        <span class="kicker">The gap</span>
+        <h2 class="story-h">Speed-ups are judged on the average, not on the words that matter</h2>
+        <p class="story-sub">
+          Every common speed-up decides where to cut corners using <em>confidence</em> or <em>average
+          accuracy</em>. None of them ask the clinical question: when compute is saved, is it being taken
+          from the handful of words that determine the finding, like <code>no</code>, <code>left</code>,
+          <code>severe</code>, a measurement, or a disease name? We measured exactly that, three ways: against
+          the full model, against the words the radiologist actually wrote, and against the clinical findings
+          a standard labeler (CheXbert) reads out of the report.
+        </p>
+      </section>
+
+      <!-- ============ WHAT WE FOUND ============ -->
+      <section id="findings" class="story">
+        <span class="kicker">What we found</span>
+        <h2 class="story-h">Confidence-only shortcuts concentrate their errors on the critical words</h2>
+        <div class="finding-grid reveal">
+          <div class="finding-card">
+            <div class="lbl">Disagreement with the full model, on critical words</div>
+            <span class="count bad" data-from="72.1" data-to="72.1" data-suffix="%">72.1%</span>
+            <p style="margin-top:8px">A confidence-only early exit disagrees with the full model answer on nearly three-quarters of critical words.</p>
+            <div class="lbl" style="margin-top:12px">TokenTriage, same speed</div>
+            <span class="count good" data-from="0" data-to="25.5" data-suffix="%">25.5%</span>
+          </div>
+          <div class="finding-card">
+            <div class="lbl">Extra errors vs the words the radiologist wrote</div>
+            <span class="count bad" data-from="0" data-to="22" data-prefix="+" data-suffix=" pts">+22 pts</span>
+            <p style="margin-top:8px">Confidence-only exit adds 16 to 22 points of error on critical words, measured against ground truth.</p>
+            <div class="lbl" style="margin-top:12px">TokenTriage</div>
+            <span class="count good" data-from="0" data-to="4" data-prefix="+" data-suffix=" pts">+4 pts</span>
+          </div>
+          <div class="finding-card">
+            <div class="lbl">Reports where a clinical finding changes (CheXbert)</div>
+            <span class="count bad" data-from="0" data-to="70" data-suffix="%">70%</span>
+            <p style="margin-top:8px">The shortcut errors flip a real CheXbert finding in 7 of 10 reports. TokenTriage roughly halves that.</p>
+            <div class="lbl" style="margin-top:12px">TokenTriage</div>
+            <span class="count good" data-from="0" data-to="46" data-suffix="%">46%</span>
+          </div>
+        </div>
+        <p class="story-sub" style="margin-top:18px">
+          In short: the cost of going fast was being paid almost entirely by the words a clinician cares about
+          most. TokenTriage keeps the speed-up but stops spending it there.
+        </p>
+      </section>
+
+      <!-- ============ HOW IT WORKS ============ -->
+      <section id="how" class="story">
+        <span class="kicker">How it works</span>
+        <h2 class="story-h">Rush the easy words, slow down only on the risky ones</h2>
+        <div class="route-fig reveal">
+          <svg viewBox="0 0 820 250" role="img" aria-label="Routing through layers">
+            <g class="r-grid">
+              <line x1="120" y1="40" x2="120" y2="210"/><line x1="220" y1="40" x2="220" y2="210"/>
+              <line x1="320" y1="40" x2="320" y2="210"/><line x1="420" y1="40" x2="420" y2="210"/>
+              <line x1="520" y1="40" x2="520" y2="210"/><line x1="620" y1="40" x2="620" y2="210"/>
+              <line x1="720" y1="40" x2="720" y2="210"/>
+            </g>
+            <text class="r-lab" x="120" y="232">shallow layers</text>
+            <text class="r-lab" x="640" y="232">deep layers</text>
+            <g class="r-tok r-ord"><rect x="20" y="62" width="70" height="30" rx="6"/><text x="55" y="82" text-anchor="middle">the</text></g>
+            <path class="r-path r-ord-path" d="M92 77 H300"/>
+            <circle cx="300" cy="77" r="6" fill="#3f5870"/>
+            <text class="r-lab" x="312" y="72" fill="#3f5870">exits early, cheap</text>
+            <g class="r-tok r-crit"><rect x="20" y="160" width="64" height="30" rx="6"/><text x="52" y="180" text-anchor="middle">no</text></g>
+            <path class="r-path r-crit-path" d="M88 175 H700"/>
+            <circle cx="700" cy="175" r="6" fill="#0e6f63"/>
+            <text class="r-lab" x="330" y="160" fill="#0a4f47">held until deep and stable for k layers</text>
+          </svg>
+        </div>
+        <div class="how-steps">
+          <div class="how-step"><span class="num">1</span><h3>Tag the risky words</h3><p>A simple detector flags negation, laterality, severity, temporality, measurements, units, and findings.</p></div>
+          <div class="how-step"><span class="num">2</span><h3>Let ordinary words go fast</h3><p>Everyday words still take the cheap early exit, so most of the speed-up is kept.</p></div>
+          <div class="how-step"><span class="num">3</span><h3>Make risky words earn it</h3><p>A critical word must reach a deeper layer and give the same answer for several layers in a row before it is allowed to commit.</p></div>
         </div>
       </section>
 
@@ -104,34 +204,9 @@
         </p>
       </section>
 
-      <!-- ============ MOTIVATION ============ -->
-      <section id="motivation">
-        <h2><span class="n">1</span>Motivation</h2>
-        <p class="lead">
-          Large language models spend the same compute on punctuation as on a diagnosis. Early-exit
-          methods stop confident tokens before the final layer to save latency, a good trade in general
-          text. In a radiology report it is not: a wrong early decision on <code>no</code> versus an
-          affirmed finding, or <code>left</code> versus <code>right</code>, can reverse the entire reading.
-          Standard exits (entropy, margin, max-confidence) ask only <em>“how sure is the model?”</em>.
-          They never ask the question that matters clinically: <em>“what would this token mean if it were
-          wrong?”</em>
-        </p>
-        <div class="note">
-          <span class="tag">Hypothesis</span>
-          If early exit ignores token meaning, it saves compute while concentrating error on clinical-risk
-          tokens. If routing uses semantic risk plus layerwise stability, critical-token error should fall
-          at a modest compute cost.
-        </div>
-        <p>
-          Risk is assigned from token <b>meaning</b>, not model confidence. A token is high-risk when
-          changing it changes the clinical reading: negation, laterality, severity, temporality,
-          medication, numeric measurements, units, and key findings.
-        </p>
-      </section>
-
       <!-- ============ METHOD ============ -->
       <section id="method">
-        <h2><span class="n">2</span>Method</h2>
+        <h2><span class="n">1</span>Method</h2>
         <p>The pipeline traces every report once, then evaluates all policies on the same cached traces, so comparisons are exact and reproducible.</p>
         <ul>
           <li><b>Trace.</b> Run each report teacher-forced; at every layer, project the hidden state through the LM head (logit lens) and record entropy, top-1/top-2 margin, target NLL, the top token, and whether it matches the full model.</li>
@@ -147,7 +222,7 @@
 
       <!-- ============ EXPERIMENTS ============ -->
       <section id="experiments">
-        <h2><span class="n">3</span>Experiments</h2>
+        <h2><span class="n">2</span>Experiments</h2>
         <p>
           Main experiment: the public <code>ChayanM/IUXray-Data-Train-Test</code> test split with
           Qwen2.5-1.5B-Instruct at <b>256 reports</b> (13,697 next-token positions, 1,163 critical tokens,
@@ -163,7 +238,7 @@
 
       <!-- ============ RESULTS ============ -->
       <section id="results">
-        <h2><span class="n">4</span>Main result: confidence-only exit concentrates error on critical tokens</h2>
+        <h2><span class="n">3</span>Main result: confidence-only exit concentrates error on critical tokens</h2>
         <p>
           The strongest confidence baseline (entropy, threshold 0.10) saves 37.9% of simulated compute but
           disagrees with the full model on <span class="neg">71.7%</span> of critical tokens. TokenTriage at
@@ -200,7 +275,7 @@
 
       <!-- ============ GENERALIZATION ============ -->
       <section id="generalization">
-        <h2><span class="n">5</span>Generalization across families, scale, and a second dataset</h2>
+        <h2><span class="n">4</span>Generalization across families, scale, and a second dataset</h2>
         <p>
           We re-ran the full pipeline across four open models spanning two families and a 6× size range, plus
           a 256-report run and a second dataset. Confidence-only exit concentrates error on critical tokens in
@@ -230,7 +305,7 @@
 
       <!-- ============ CORRECTNESS ============ -->
       <section id="correctness">
-        <h2><span class="n">6</span>Correctness against the words of the radiologist</h2>
+        <h2><span class="n">5</span>Correctness against the words of the radiologist</h2>
         <p>
           A fair objection: preserving the full-model prediction is not the same as being right. Because the
           teacher-forced text <em>is</em> the radiologist report, the gold next token is ground truth.
@@ -263,7 +338,7 @@
 
       <!-- ============ ENTITY-LEVEL ============ -->
       <section id="entity">
-        <h2><span class="n">7</span>Entity-level correctness with CheXbert</h2>
+        <h2><span class="n">6</span>Entity-level correctness with CheXbert</h2>
         <p>
           Token-level error need not be clinically meaningful, a wrong digit may not change a finding. To
           test clinical impact directly we run a counterfactual: for each policy we apply its critical-token
@@ -292,7 +367,7 @@
 
       <!-- ============ DECODING ============ -->
       <section id="decoding">
-        <h2><span class="n">8</span>An honest look at the decoding regime</h2>
+        <h2><span class="n">7</span>An honest look at the decoding regime</h2>
         <p>
           The results above hold in the <b>preservation regime</b>, where the input text is fixed (teacher
           forcing, scoring, grounded generation, speculative-decoding verification). Does harm-aware routing
@@ -318,24 +393,44 @@
         </p>
       </section>
 
+      <!-- ============ QUANTIZATION ============ -->
+      <section id="quantize" class="story">
+        <span class="kicker">In lieu of quantization?</span>
+        <h2 class="story-h">This does not replace quantization. It stacks with it.</h2>
+        <div class="quant-wrap">
+          <div class="quant-fig reveal">
+            <svg viewBox="0 0 360 240" role="img" aria-label="Precision and depth are different axes">
+              <line class="q-axis" x1="50" y1="200" x2="330" y2="200"/>
+              <line class="q-axis" x1="50" y1="200" x2="50" y2="30"/>
+              <text class="q-lab" x="190" y="228" text-anchor="middle">precision  (quantization, distillation)</text>
+              <text class="q-lab" x="20" y="120" text-anchor="middle" transform="rotate(-90 20 120)">depth  (early exit)</text>
+              <circle class="q-dot" cx="80" cy="190" r="8"/>
+              <text class="q-lab" x="250" y="70" text-anchor="middle">stack both to</text>
+              <text class="q-lab" x="250" y="86" text-anchor="middle">save the most</text>
+            </svg>
+          </div>
+          <div>
+            <p>
+              Quantization (running the model in lower-precision math) and distillation (training a smaller
+              model) are the workhorses of fast AI today, and you should reach for them first. They save cost
+              on a <em>different axis</em> than early exit: precision and size, versus how many layers run per
+              word. Because the axes are independent, you can quantize a model <strong>and</strong> let it exit
+              early.
+            </p>
+            <p>
+              Early exit also has a real-world form that is already deployed: <strong>speculative decoding</strong>,
+              where a fast draft is checked by the full model. TokenTriage is the safety rule for that family.
+              It decides which draft words can be trusted without a full re-check, and which (the clinical ones)
+              cannot. The claim is not use early exit instead of quantization. It is: <strong>whenever you take
+              shortcuts on clinical text, take them by risk, not just by confidence.</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- ============ FAQ ============ -->
       <section id="faq" class="faq">
-        <h2><span class="n">9</span>Questions a reader might reasonably ask</h2>
-
-        <h3>Does anyone actually use early exit instead of quantization?</h3>
-        <p class="a">
-          Mostly not, yet, and that is worth being honest about. <strong>Quantization</strong> (running
-          the model in lower-precision math) and <strong>distillation</strong> (training a smaller
-          model) are the workhorses of fast AI today; you would reach for those first. Two things keep early
-          exit relevant: (1) it is <strong>complementary, not a competitor</strong>, you can quantize a
-          model <em>and</em> let it stop early, because they save on different axes (precision vs.
-          depth); and (2) early exit is most deployed form is <strong>speculative decoding</strong>,
-          which <em>is</em> used in production, a fast "draft" is checked by the full model. TokenTriage
-          is the safety rule for that family: decide which draft words you can trust without a full
-          re-check, and which (the clinical ones) you cannot. So the claim is not "use early exit instead
-          of quantization." It is: <strong>whenever you take shortcuts on clinical text, take them by
-          risk, not just by confidence.</strong>
-        </p>
+        <h2><span class="n">8</span>Questions a reader might reasonably ask</h2>
 
         <h3>Why not just always run the full model?</h3>
         <p class="a">
@@ -371,7 +466,7 @@
 
       <!-- ============ REPRODUCE ============ -->
       <section id="reproduce">
-        <h2><span class="n">10</span>Reproducibility</h2>
+        <h2><span class="n">9</span>Reproducibility</h2>
         <p>Every table regenerates from cached per-token logit-lens traces with one command set.</p>
         <pre class="term"><span class="bar"><i></i><i></i><i></i><span>bash</span></span><code><span class="c"># install</span>
 git clone https://github.com/DIGlabUAB/token-triage
@@ -392,7 +487,7 @@ python scripts/build_chexbert_inputs.py    <span class="c"># perturbed reports p
 
       <!-- ============ LIMITATIONS ============ -->
       <section id="limitations">
-        <h2><span class="n">11</span>Limitations</h2>
+        <h2><span class="n">10</span>Limitations</h2>
         <ul>
           <li>The risk tagger is lexicon-based; the interface is pluggable but a RadGraph/CheXbert tagger is not yet used to <em>assign</em> risk.</li>
           <li>Entity-level correctness is a CheXbert counterfactual on perturbed gold reports, not radiologist-judged report correctness or RadGraph relation-level evaluation.</li>
@@ -403,7 +498,7 @@ python scripts/build_chexbert_inputs.py    <span class="c"># perturbed reports p
 
       <!-- ============ BIBTEX ============ -->
       <section id="bibtex">
-        <h2><span class="n">12</span>BibTeX</h2>
+        <h2><span class="n">11</span>BibTeX</h2>
         <button class="copy" id="copyBtn" type="button">copy</button>
         <pre class="bib"><code id="bib">@misc{powell2026tokentriage,
   title  = {TokenTriage: Harm-Aware Token Routing for Clinical Language Model Inference},
@@ -434,6 +529,36 @@ python scripts/build_chexbert_inputs.py    <span class="c"># perturbed reports p
         if (e.isIntersecting) links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id));
       }), { rootMargin: "-45% 0px -50% 0px" });
       secs.forEach(s => spy.observe(s));
+
+      // ----- scroll reveal -----
+      const revs = document.querySelectorAll(".reveal");
+      const rObs = new IntersectionObserver((es) => es.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add("in"); rObs.unobserve(e.target); }
+      }), { threshold: 0.2 });
+      revs.forEach(el => rObs.observe(el));
+
+      // ----- count-up numbers -----
+      function fmt(v, el) {
+        const dec = (el.dataset.to.indexOf(".") >= 0) ? 1 : 0;
+        return (el.dataset.prefix || "") + v.toFixed(dec) + (el.dataset.suffix || "");
+      }
+      const counts = document.querySelectorAll(".count[data-to]");
+      const cObs = new IntersectionObserver((es) => es.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target; cObs.unobserve(el);
+        const to = parseFloat(el.dataset.to), from = parseFloat(el.dataset.from || "0");
+        const t0 = performance.now(), D = 900;
+        function tick(t) {
+          const k = Math.min(1, (t - t0) / D), e2 = 1 - Math.pow(1 - k, 3);
+          el.textContent = fmt(from + (to - from) * e2, el);
+          if (k < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        // guarantee the correct final value even if rAF is throttled
+        setTimeout(() => { el.textContent = fmt(to, el); }, D + 90);
+      }), { threshold: 0.5 });
+      counts.forEach(el => cObs.observe(el));
+      // The flip demo is pure CSS (always-visible tokens, looping highlight) so it needs no JS.
     </script>
   </body>
 </html>

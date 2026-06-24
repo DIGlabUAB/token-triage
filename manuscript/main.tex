@@ -452,30 +452,38 @@ verification and self-speculative-decoding acceptance, rather than in naive untr
 Our results support a single claim: the compute-quality frontier is the wrong object for clinical
 adaptive inference, because it averages over a semantically asymmetric token distribution. A policy can
 look attractive in aggregate while concentrating both model-preservation error and ground-truth error
-on the tokens that determine the meaning of the report. \method{} shows that a small, training-free change to
-the halting rule, spending a few extra layers only on high-risk tokens, removes most of that
-concentrated error.
+on the tokens that determine the meaning of the report. \method{} shows that a small, training-free
+change to the halting rule, spending a few extra layers only on high-risk tokens, removes most of that
+concentrated error, and the effect is consistent across two model families, a sixfold range of model
+size, a second dataset, the words written by the radiologist, and the findings recovered by CheXbert.
 
-\paragraph{Where this is useful, concretely.}
-We do not claim that adaptive depth should replace quantization, since the two compose. The most
-realistic deployment is self-speculative decoding, where early-exit drafts are accepted if they match
-the full model and otherwise corrected. Standard acceptance is lossless but spends full-model compute on
-every token. A harm-aware variant can accept cheap drafts for ordinary tokens while requiring full-model
-confirmation only for critical ones, which recovers latency without the clinical risk that uniform
-aggressive acceptance would incur. The risk tagger and stability criterion of \method{} are exactly the
-acceptance policy that such a system needs.
+We do not read this as an argument that adaptive depth should replace quantization. Quantization and
+distillation reduce cost on the axis of numerical precision and model size, adaptive depth reduces it
+on the axis of computation per token, and the two compose: a quantized model can still exit early. The
+most realistic deployment for adaptive depth is therefore self-speculative decoding, where early-exit
+drafts are accepted if they match the full model and otherwise corrected. Standard acceptance is
+lossless but pays full-model compute on every token, whereas a harm-aware variant can accept cheap
+drafts for ordinary tokens while requiring full-model confirmation only for critical ones, recovering
+latency without the clinical risk that uniform aggressive acceptance would incur. The risk tagger and
+stability criterion of \method{} are precisely the acceptance policy such a system needs, and our
+preservation metric is precisely its acceptance rate.
 
-\section{Threats to Validity}
-\label{sec:threats}
-\textbf{Construct.} Preservation and excess gold-token error are token-level proxies, and the CheXbert
-counterfactual measures finding changes on perturbed gold text, not radiologist-judged report
-correctness. \textbf{Internal.} The logit lens is a known-noisy probe, and the architectures expose a
-final norm that we reuse. Results are reported relative to the same probe for all policies, so the
-comparison is fair even if the absolute lens is imperfect. \textbf{External.} The domain is chest
-radiology and the language is English, the risk tagger is a lexicon (though pluggable), and one model
-(Phi-3.5-mini) was excluded for a remote-code cache incompatibility, leaving two families.
-\textbf{Statistical.} Intervals are report-level bootstraps. The intervals for the main effect do not overlap,
-but the smaller runs are illustrative rather than definitive.
+These conclusions should be read with their limits in view, and we state them plainly. Preservation
+and excess gold-token error are token-level proxies, and the CheXbert experiment measures changes to
+the finding vector of a counterfactually perturbed gold report, not a radiologist judgment of report
+correctness; a wrong token that does not move a CheXbert label may still matter clinically, and the
+converse is possible as well. The logit lens we use to read intermediate layers is a known-noisy
+probe, and it relies on a final norm exposed by the architecture; we mitigate this only in the sense
+that every policy is scored against the same probe, so the comparison between policies is fair even
+where the absolute lens is imperfect. The evidence is confined to chest radiology and to English, the
+risk tagger is a fixed lexicon rather than a learned or entity-grounded one (though the interface is
+pluggable), and one model, Phi-3.5-mini, was excluded for a remote-code cache incompatibility, leaving
+two model families rather than three. Our uncertainty is quantified by report-level bootstraps: the
+intervals for the main effect do not overlap, but the smaller single-run comparisons are best read as
+consistency checks rather than independent confirmations. Finally, and most importantly, the negative
+decoding result in Section~\ref{sec:decoding} bounds the scope of the claim: \method{} is a tool for
+the preservation and verification regime, not a drop-in speedup for untrained free generation, and we
+have tried throughout to report where it does not help as carefully as where it does.
 
 \section{Conclusion}
 Efficient clinical inference should ask not only whether a model is confident, but what kind of token is
